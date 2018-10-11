@@ -1,0 +1,23 @@
+@import '../styles/grid';
+
+.Popup {
+  border-bottom: 1px solid #7B756B;
+  flex: 1 1 auto;
+  overflow-x: hidden;
+  overflow-y: auto;
+  padding: 36px 0;
+  font-size: 12px;
+}
+
+.Popup-row {
+  display: flex;
+  margin: 3px 0;
+}
+
+.Popup-label {
+  flex: 0 0 auto;
+  font-weight: bold;
+  margin-right: $gutter;
+  text-align: right;
+  width: 33%;
+}

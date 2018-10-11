@@ -1,0 +1,10 @@
+html {
+  box-sizing: border-box;
+  font-family: ff-tisa-sans-web-pro, sans-serif;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+.App {
+}

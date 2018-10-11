@@ -1,0 +1,46 @@
+.Sidebar {
+  background-color: #E9E9E2;
+  float: left;
+  height: 100vh;
+  width: 34%;
+}
+
+.Sidebar-main {
+  display: flex;
+  flex-direction: column;
+  height: calc(100% - 95px);
+  padding: 0 36px;
+}
+
+.Sidebar-logos {
+  background-color: rgba(255, 255, 255, 0.5);
+  height: 95px;
+  padding-left: 36px;
+}
+
+.Sidebar-logo {
+  display: inline-block;
+  margin-left: 20px;
+  margin-top: 15px;
+}
+
+.Sidebar-logo:first-of-type {
+  margin-left: 0;
+}
+
+.Sidebar-header {
+  border-bottom: 1px solid #7B756B;
+  margin: 36px 0;
+  padding-bottom: 36px;
+}
+
+.Sidebar-header-organization {
+  font-size: 32px;
+}
+
+.Sidebar-header-project {
+  font-size: 20px;
+  font-weight: normal;
+  letter-spacing: 1.1px;
+  text-transform: uppercase;
+}

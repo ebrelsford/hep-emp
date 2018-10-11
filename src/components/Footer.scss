@@ -1,0 +1,23 @@
+@import '../styles/grid';
+
+.Footer {
+  display: flex;
+  font-size: 12px;
+  height: 72px;
+  padding-top: 20px;
+}
+
+.Footer-left {
+  margin-right: $gutter;
+  text-align: right;
+  width: 33%;
+}
+
+.Footer-right {
+}
+
+.Footer-button {
+  background: transparent;
+  border: none;
+  padding: 0;
+}

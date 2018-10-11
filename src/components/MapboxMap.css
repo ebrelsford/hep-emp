@@ -1,0 +1,5 @@
+.MapboxMap-container {
+  float: left;
+  height: 100vh;
+  width: 66%;
+}

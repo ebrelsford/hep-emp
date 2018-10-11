@@ -1,0 +1,31 @@
+.AboutModal {
+  background-color: rgba(0, 0, 0, 0.6);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 100;
+}
+
+.AboutModal-inner {
+  background-color: white;
+  margin-left: 10%;
+  margin-top: 10vh;
+  padding: 25px;
+  position: relative;
+  height: 80vh;
+  width: 80%;
+}
+
+.AboutModal-close {
+  background: none;
+  border: none;
+  cursor: pointer;
+  float: right;
+  font-size: 24px;
+  padding: 0;
+  position: absolute;
+  right: 5px;
+  top: 5px;
+}
