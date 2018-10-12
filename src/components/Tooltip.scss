@@ -1,0 +1,23 @@
+@import '../styles/colors';
+
+.Tooltip {
+  background: white;
+  border: 1px solid $light-grey;
+  border-radius: 3px;
+  font-size: 12px;
+  max-width: 150px;
+  padding: 9px;
+  position: absolute;
+  z-index: 100;
+
+  &-arrow {
+    background: white;
+    border-top: 1px solid $light-grey;
+    border-left: 1px solid $light-grey;
+    height: 10px;
+    position: absolute;
+    top: -6px;
+    transform: rotate(45deg);
+    width: 10px;
+  }
+}

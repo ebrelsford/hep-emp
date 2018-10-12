@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import slug from 'slug';
 
 import FilterSelect from './FilterSelect';
+import Tooltip from './Tooltip';
 import './Filters.scss';
 
 import { goals } from '../config';
@@ -14,15 +15,44 @@ const options = [
 ];
 
 class Goal extends Component {
+  constructor(props) {
+    super(props);
+    this.parentRef = React.createRef();
+    this.state = {
+      tooltipVisible: false
+    };
+  }
+
+  onMouseOver() {
+    const rect = this.parentRef.current.getBoundingClientRect();
+    this.setState({
+      tooltipLeft: rect.x + (rect.width / 4),
+      tooltipTop: rect.y + rect.height,
+      tooltipVisible: true
+    });
+  }
+
+  onMouseOut() {
+    this.setState({ tooltipVisible: false });
+  }
+
   render() {
     const { active, onClick } = this.props;
-    const { activeIcon, inactiveIcon, name } = this.props.goal;
+    const { activeIcon, inactiveIcon, name, tooltip } = this.props.goal;
+    const { tooltipLeft, tooltipTop, tooltipVisible } = this.state;
+
     return (
-      <div className={classNames(
-        'Filters-goal', 
-        slug(name).toLowerCase(),
-        { active }
-      )} onClick={onClick}>
+      <div
+        className={classNames(
+          'Filters-goal', 
+          slug(name).toLowerCase(),
+          { active }
+        )}
+        onClick={onClick}
+        onMouseOut={this.onMouseOut.bind(this)}
+        onMouseOver={this.onMouseOver.bind(this)}
+        ref={this.parentRef}
+      >
         <img
           className='Filters-goal-icon'
           src={active ? activeIcon : inactiveIcon}
@@ -30,11 +60,17 @@ class Goal extends Component {
         <div className='Filters-goal-name'>
           {name}
         </div>
+        {tooltipVisible && tooltip ? (
+          <Tooltip
+            left={tooltipLeft}
+            top={tooltipTop}
+            text={tooltip}
+          />
+        ) : null}
       </div>
     );
   }
 }
-
 
 class Filters extends Component {
   updateGoals(goalName) {

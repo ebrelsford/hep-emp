@@ -33,26 +33,31 @@ export const goals = [
   {
     name: 'Water Quality',
     activeIcon: waterQualityActive,
-    inactiveIcon: waterQualityInactive
+    inactiveIcon: waterQualityInactive,
+    tooltip: 'Reduce the sources of pollution so that the waters of the Harbor Estuary will meet the fishable/swimmable goal of the Clean Water Act.'
   },
   {
     name: 'Habitat and Ecological Health',
     activeIcon: habitatActive,
-    inactiveIcon: habitatInactive
+    inactiveIcon: habitatInactive,
+    tooltip: 'Protect and restore the vital habitat, ecological function, and biodiversity that provide society with renewed and increased benefits.'
   },
   {
     name: 'Port and Maritime',
     activeIcon: portMaritimeActive,
-    inactiveIcon: portMaritimeInactive
+    inactiveIcon: portMaritimeInactive,
+    tooltip: 'Support port and associated maritime operations so that they are both economically and ecologically viable.'
   },
   {
     name: 'Public Access',
     activeIcon: publicAccessActive,
-    inactiveIcon: publicAccessInactive
+    inactiveIcon: publicAccessInactive,
+    tooltip: 'Improve public access to the waters of the Estuary and the quality of experience at public spaces along the waterfront.'
   },
   {
     name: 'Community Engagement',
     activeIcon: communityEngagementActive,
-    inactiveIcon: communityEngagementInactive
+    inactiveIcon: communityEngagementInactive,
+    tooltip: 'Foster community stewardship and involvement in decisions about the Harbor Estuary.'
   }
 ];
