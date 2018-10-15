@@ -2,16 +2,18 @@
 
 html {
   box-sizing: border-box;
+  overflow: hidden;
 }
 *, *:before, *:after {
   box-sizing: inherit;
 }
 
 body {
-  font-family: "ff-tisa-sans-web-pro", sans-serif;
+  font-family: $font-primary;
   font-style: normal;
   font-weight: 400;
 }
 
 .App {
 }
+

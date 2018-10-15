@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Filters from '../containers/Filters';
 import Footer from '../containers/Footer';
 import Popup from '../containers/Popup';
-import './Sidebar.css';
+import './Sidebar.scss';
 
 import logoHep from '../img/logo-hep.svg';
 import logoHrf from '../img/logo-hrf.svg';
