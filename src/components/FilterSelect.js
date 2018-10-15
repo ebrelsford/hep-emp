@@ -8,7 +8,7 @@ const selectStyles = {
       '&:hover': {
         borderColor: 'transparent'
       },
-      backgroundColor: 'rgba(255, 255, 255, 0.5)',
+      backgroundColor: '#F4F4F0',
       border: 'none',
       borderColor: 'transparent',
       borderRadius: 0,
@@ -28,6 +28,7 @@ const selectStyles = {
   menu: (base) => {
     return {
       ...base,
+      backgroundColor: '#F4F4F0',
       border: 'none',
       borderColor: 'transparent',
       borderRadius: 0,
