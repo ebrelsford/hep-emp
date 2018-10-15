@@ -26,11 +26,14 @@
 
 .Filters-goal {
   cursor: pointer;
+  display: flex;
+  flex-direction: column;
   width: 18%;
 }
 
 .Filters-goal-icon {
-  margin-left: 15%;
+  margin: 0 auto;
+  max-width: 50px;
   opacity: 0.6;
   width: 70%;
 }
