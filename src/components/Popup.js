@@ -74,10 +74,6 @@ class ProgramPopup extends Component {
           <div className='Popup-label'>Contact</div>
           <div className='Popup-value'>{Contact}</div>
         </div>
-        <div className='Popup-row'>
-          <div className='Popup-label'>Data Reduction</div>
-          <div className='Popup-value'></div>
-        </div>
       </div>
     );
   }
