@@ -29,6 +29,16 @@ class Map extends Component {
     });
   }
 
+  onClick(map, event) {
+    this.setState({
+      mousePosition: {
+        left: event.originalEvent.clientX,
+        top: event.originalEvent.clientY
+      }
+    });
+    this.props.setClickedFeatures(this.findFeatures(map, event.point));
+  }
+
   onMouseMove(map, event) {
     this.setState({
       mousePosition: {
@@ -54,6 +64,7 @@ class Map extends Component {
           }}
           center={initialMap.center}
           maxBounds={initialMap.maxBounds}
+          onClick={this.onClick.bind(this)}
           onMouseMove={this.onMouseMove.bind(this)}
           zoom={initialMap.zoom}
         >

@@ -1,5 +1,10 @@
 import { csvParse } from 'd3-dsv';
 
+export const setClickedFeatures = (clickedFeatures) => ({
+  type: 'SET_CLICKED_FEATURES',
+  clickedFeatures
+});
+
 export const setMouseOverFeatures = (mouseOverFeatures) => ({
   type: 'SET_MOUSE_OVER_FEATURES',
   mouseOverFeatures

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Filters from '../containers/Filters';
 import Footer from '../containers/Footer';
-import Popup from './Popup';
+import Popup from '../containers/Popup';
 import './Sidebar.css';
 
 import logoHep from '../img/logo-hep.svg';

@@ -35,3 +35,7 @@ export function uniqueOrganizations(programs) {
     .sort()
     .filter(name => name !== '');
 }
+
+export function getProgramsById(programs, id) {
+  return programs.filter(program => program.ProgID === id);
+}
