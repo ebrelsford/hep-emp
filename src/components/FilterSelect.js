@@ -8,6 +8,7 @@ const selectStyles = {
       '&:hover': {
         borderColor: 'transparent'
       },
+      backgroundColor: 'rgba(255, 255, 255, 0.5)',
       border: 'none',
       borderColor: 'transparent',
       borderRadius: 0,
