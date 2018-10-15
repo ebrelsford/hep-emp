@@ -17,6 +17,10 @@ export const hrfLink = 'http://www.hudsonriver.org/';
 
 export const mapbox = {
   accessToken: 'pk.eyJ1IjoiaHVkc29ucmYiLCJhIjoiY2ptcWsybmN0MXF5azN2bWw0emxvdmI2aSJ9.lFisgR_vLsqNOMgusrDIhA',
+  layers: {
+    monitoringPoints: 'monitoring-points',
+    monitoringPolygons: 'monitoring-polygons'
+  },
   styleUrl: 'mapbox://styles/hudsonrf/cjms1gyqra6172smzt8x1mfg3'
 };
 
@@ -26,6 +30,8 @@ export const initialMap = {
     [-75.992432,39.774769],
     [-71.488037,42.932296]
   ],
+  maxZoom: 10,
+  minZoom: 7,
   zoom: 8
 };
 

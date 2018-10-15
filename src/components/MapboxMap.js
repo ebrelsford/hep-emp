@@ -5,7 +5,8 @@ import { initialMap, mapbox } from '../config';
 
 const MapboxGlMap = ReactMapboxGl({
   accessToken: mapbox.accessToken,
-  minZoom: 7
+  minZoom: initialMap.minZoom,
+  maxZoom: initialMap.maxZoom
 });
 
 class Map extends Component {
