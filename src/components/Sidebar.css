@@ -35,11 +35,12 @@
 }
 
 .Sidebar-header-organization {
-  font-size: 32px;
+  font-size: 28px;
+  line-height: 35px;
 }
 
 .Sidebar-header-project {
-  font-size: 20px;
+  font-size: 18px;
   font-weight: normal;
   letter-spacing: 1.1px;
   text-transform: uppercase;

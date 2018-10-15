@@ -1,9 +1,14 @@
 html {
   box-sizing: border-box;
-  font-family: ff-tisa-sans-web-pro, sans-serif;
 }
 *, *:before, *:after {
   box-sizing: inherit;
+}
+
+body {
+  font-family: "ff-tisa-sans-web-pro", sans-serif;
+  font-style: normal;
+  font-weight: 400;
 }
 
 .App {
