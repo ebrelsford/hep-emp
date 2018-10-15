@@ -6,6 +6,10 @@ import MapboxMap from './MapboxMap';
 import Sidebar from './Sidebar';
 
 class App extends Component {
+  componentWillMount() {
+    this.props.fetchPrograms();
+  }
+
   render() {
     const { aboutModal } = this.props;
     return (

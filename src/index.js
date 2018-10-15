@@ -1,13 +1,23 @@
+import 'whatwg-fetch';
+
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import { createStore } from 'redux';
+import { applyMiddleware, createStore } from 'redux';
+import thunk from 'redux-thunk';
 import './index.css';
 import App from './containers/App';
 import rootReducer from './reducers'
 import * as serviceWorker from './serviceWorker';
 
-const store = createStore(rootReducer);
+function configureStore() {  
+  return createStore(
+    rootReducer,
+    applyMiddleware(thunk)
+  );
+}
+
+const store = configureStore();
 
 ReactDOM.render(
   <Provider store={store}>

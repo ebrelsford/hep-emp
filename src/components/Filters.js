@@ -8,12 +8,6 @@ import './Filters.scss';
 
 import { goals } from '../config';
 
-const options = [
-  { value: 'chocolate', label: 'Chocolate' },
-  { value: 'strawberry', label: 'Strawberry' },
-  { value: 'vanilla', label: 'Vanilla' }
-];
-
 class Goal extends Component {
   constructor(props) {
     super(props);
@@ -80,9 +74,18 @@ class Filters extends Component {
   }
 
   render() {
-    console.log(this.props);
-    const { filters } = this.props;
+    const { filters, indicators, organizations } = this.props;
     const filteredGoals = filters.goals;
+
+    const organizationNamesOptions = organizations.map(name => ({
+      label: name,
+      value: name
+    }));
+
+    const indicatorCategoriesOptions = indicators.map(name => ({
+      label: name,
+      value: name
+    }));
 
     return (
       <div className='Filters'>
@@ -125,7 +128,7 @@ class Filters extends Component {
             onChange={(option) => {
               this.props.updateFilter('indicatorCategory', option);
             }}
-            options={options}
+            options={indicatorCategoriesOptions}
           />
         </div>
         <div className='Filters-organization Filters-filter'>
@@ -135,7 +138,7 @@ class Filters extends Component {
             onChange={(option) => {
               this.props.updateFilter('organizationName', option);
             }}
-            options={options}
+            options={organizationNamesOptions}
           />
         </div>
       </div>
