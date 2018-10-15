@@ -1,5 +1,10 @@
 import { csvParse } from 'd3-dsv';
 
+export const setMouseOverFeatures = (mouseOverFeatures) => ({
+  type: 'SET_MOUSE_OVER_FEATURES',
+  mouseOverFeatures
+});
+
 export const hideAboutModal = () => ({
   type: 'HIDE_ABOUT_MODAL'
 });

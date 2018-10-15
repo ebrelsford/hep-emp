@@ -58,8 +58,9 @@ class Goal extends Component {
           <Tooltip
             left={tooltipLeft}
             top={tooltipTop}
-            text={tooltip}
-          />
+          >
+            {tooltip}
+          </Tooltip>
         ) : null}
       </div>
     );

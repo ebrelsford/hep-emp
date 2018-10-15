@@ -4,11 +4,11 @@ import './Tooltip.scss';
 
 class Tooltip extends Component {
   render() {
-    const { left, top, text } = this.props;
+    const { children, left, top } = this.props;
     return (
       <div className='Tooltip' style={{ left, top }}>
         <div className='Tooltip-arrow'></div>
-        {text}
+        {children}
       </div>
     );
   }

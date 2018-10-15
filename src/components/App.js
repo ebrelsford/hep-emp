@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 
 import AboutModal from '../containers/AboutModal';
-import MapboxMap from './MapboxMap';
+import MapboxMap from '../containers/MapboxMap';
 import Sidebar from './Sidebar';
 
 class App extends Component {
