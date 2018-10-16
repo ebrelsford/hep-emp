@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import ReactMapboxGl, { ZoomControl } from 'react-mapbox-gl';
-import './MapboxMap.scss';
+
 import { initialMap, mapbox } from '../config';
+import { getProgramsByGoals } from '../models/programs';
 import MapTooltip from './MapTooltip';
+import './MapboxMap.scss';
 
 const MapboxGlMap = ReactMapboxGl({
   accessToken: mapbox.accessToken,
@@ -18,15 +20,31 @@ class Map extends Component {
     };
   }
 
+  componentWillReceiveProps(nextProps) {
+    if (this.props.filters.goals !== nextProps.filters.goals) {
+      const selectedGoals = Object.keys(nextProps.filters.goals).filter(key => {
+        return nextProps.filters.goals[key];
+      });
+      const programs = getProgramsByGoals(this.props.programs, selectedGoals);
+
+      let filter;
+      if (programs.length) {
+        filter = ['in', 'ProgID'].concat(programs.map(program => program.ProgID));
+      }
+
+      Object.values(mapbox.layers).forEach(layer => {
+        let layerFilter = [...layer.defaultFilter];
+        if (filter) {
+          layerFilter.push(filter);
+        }
+        this.map.setFilter(layer.name, layerFilter);
+      });
+    }
+  }
+
   findFeatures(map, point) {
-    return map.queryRenderedFeatures(point, {
-      layers: [
-        mapbox.layers.monitoringLines,
-        mapbox.layers.monitoringPoints,
-        mapbox.layers.monitoringPointsContinuous,
-        mapbox.layers.monitoringPolygons
-      ]
-    });
+    const layers = Object.values(mapbox.layers).map(layer => layer.name);
+    return map.queryRenderedFeatures(point, { layers });
   }
 
   onClick(map, event) {
@@ -49,6 +67,10 @@ class Map extends Component {
     this.props.setMouseOverFeatures(this.findFeatures(map, event.point));
   }
 
+  onStyleLoad(map) {
+    this.map = map;
+  }
+
   render() {
     const { mouseOverFeatures, programs } = this.props;
     const { mousePosition } = this.state;
@@ -66,6 +88,7 @@ class Map extends Component {
           maxBounds={initialMap.maxBounds}
           onClick={this.onClick.bind(this)}
           onMouseMove={this.onMouseMove.bind(this)}
+          onStyleLoad={this.onStyleLoad.bind(this)}
           zoom={initialMap.zoom}
         >
           <ZoomControl/>

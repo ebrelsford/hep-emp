@@ -1,4 +1,8 @@
-import { uniqueIndicators, uniqueOrganizations } from '../models/programs';
+import {
+  cleanPrograms,
+  uniqueIndicators,
+  uniqueOrganizations
+} from '../models/programs';
 
 const DEFAULT_STATE = {
   programs: [],
@@ -15,11 +19,12 @@ const programs = (state = DEFAULT_STATE, action) => {
         programs: []
       });
     case 'RECEIVE_PROGRAMS':
+      const programs = cleanPrograms(action.csv);
       return Object.assign({}, state, {
-        indicators: uniqueIndicators(action.csv),
+        indicators: uniqueIndicators(programs),
         loading: false,
-        organizations: uniqueOrganizations(action.csv),
-        programs: action.csv
+        organizations: uniqueOrganizations(programs),
+        programs
       });
     default:
       return state;

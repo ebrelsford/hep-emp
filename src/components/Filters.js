@@ -97,8 +97,8 @@ class Filters extends Component {
               <Goal
                 key={goal.name}
                 goal={goal}
-                active={filteredGoals[goal.name]}
-                onClick={() => this.updateGoals(goal.name)}
+                active={filteredGoals[goal.filterValue]}
+                onClick={() => this.updateGoals(goal.filterValue)}
               />
             ))}
           </div>
