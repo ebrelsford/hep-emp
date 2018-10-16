@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import ReactMapboxGl, { ZoomControl } from 'react-mapbox-gl';
-import Tooltip from './Tooltip';
-import './MapboxMap.css';
+import './MapboxMap.scss';
 import { initialMap, mapbox } from '../config';
+import MapTooltip from './MapTooltip';
 
 const MapboxGlMap = ReactMapboxGl({
   accessToken: mapbox.accessToken,
@@ -50,7 +50,7 @@ class Map extends Component {
   }
 
   render() {
-    const { mouseOverFeatures } = this.props;
+    const { mouseOverFeatures, programs } = this.props;
     const { mousePosition } = this.state;
 
     return (
@@ -70,13 +70,13 @@ class Map extends Component {
         >
           <ZoomControl/>
         </MapboxGlMap>
+
         {(mousePosition && mouseOverFeatures.length) ? (
-          <Tooltip
-            left={mousePosition.left - 10}
-            top={mousePosition.top + 20}
-          >
-            {mouseOverFeatures[0].properties.SiteName}
-          </Tooltip>
+          <MapTooltip
+            features={mouseOverFeatures}
+            position={mousePosition}
+            programs={programs}
+          />
         ) : null}
       </div>
     );

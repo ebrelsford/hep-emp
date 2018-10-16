@@ -1,0 +1,15 @@
+@import '../styles/colors';
+
+.MapTooltip-section {
+  margin-bottom: 5px;
+}
+
+.MapTooltip-label {
+  display: block;
+  font-weight: bold;
+}
+
+.MapTooltip-more {
+  color: $dark-grey;
+  font-style: italic;
+}
