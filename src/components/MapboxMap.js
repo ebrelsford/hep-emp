@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import ReactMapboxGl, { ZoomControl } from 'react-mapbox-gl';
 
-import { initialMap, mapbox } from '../config';
+import { goals, initialMap, mapbox } from '../config';
 import { getProgramsByGoals } from '../models/programs';
 import MapTooltip from './MapTooltip';
 import './MapboxMap.scss';
@@ -27,6 +27,15 @@ class Map extends Component {
       });
       const programs = getProgramsByGoals(this.props.programs, selectedGoals);
 
+      if (selectedGoals.length !== 1) {
+        Object.values(mapbox.layers)
+          .forEach(layer => {
+            layer.goalStyleFields.forEach(field => {
+              this.map.setPaintProperty(layer.name, field, initialMap.featureColor);
+            });
+          });
+      }
+
       let filter;
       if (programs.length) {
         filter = ['in', 'ProgID'].concat(programs.map(program => program.ProgID));
@@ -39,6 +48,17 @@ class Map extends Component {
         }
         this.map.setFilter(layer.name, layerFilter);
       });
+
+      if (selectedGoals.length === 1) {
+        const goal = goals.filter(g => g.filterValue === selectedGoals[0])[0];
+        Object.values(mapbox.layers)
+          .forEach(layer => {
+            // TODO continuous--deal with each color via SVG icon
+            layer.goalStyleFields.forEach(field => {
+              this.map.setPaintProperty(layer.name, field, goal.featureColor);
+            });
+          });
+      }
     }
   }
 

@@ -20,20 +20,28 @@ export const mapbox = {
   layers: {
     monitoringLines: {
       name: 'monitoring-lines',
-      defaultFilter: ['all']
+      defaultFilter: ['all'],
+      goalStyleFields: ['line-color']
     },
-    monitoringPoints: {
-      // TODO not continuous
-      name: 'monitoring-points',
-      defaultFilter: ['all']
+    monitoringPointsActive: {
+      name: 'monitoring-points-active',
+      defaultFilter: ['all'],
+      goalStyleFields: ['circle-color', 'circle-stroke-color']
+    },
+    monitoringPointsNonActive: {
+      name: 'monitoring-points-non-active',
+      defaultFilter: ['all'],
+      goalStyleFields: ['circle-stroke-color']
     },
     monitoringPointsContinuous: {
       name: 'monitoring-points-continuous',
-      defaultFilter: ['all', ['in', 'Legend', 'Continuous']]
+      defaultFilter: ['all', ['in', 'Legend', 'Continuous']],
+      goalStyleFields: []
     },
     monitoringPolygons: {
       name: 'monitoring-polygons',
-      defaultFilter: ['all']
+      defaultFilter: ['all'],
+      goalStyleFields: ['fill-color']
     }
   },
   styleUrl: 'mapbox://styles/hudsonrf/cjms1gyqra6172smzt8x1mfg3'
@@ -41,6 +49,7 @@ export const mapbox = {
 
 export const initialMap = {
   center: [-73.85, 41.13],
+  featureColor: '#817a6a',
   maxBounds: [
     [-75.992432,39.774769],
     [-71.488037,42.932296]
@@ -53,6 +62,7 @@ export const initialMap = {
 export const goals = [
   {
     name: 'Water Quality',
+    featureColor: '#0072B5',
     filterValue: 'Water Quality',
     activeIcon: waterQualityActive,
     inactiveIcon: waterQualityInactive,
@@ -60,6 +70,7 @@ export const goals = [
   },
   {
     name: 'Habitat and Ecological Health',
+    featureColor: '#5CAA46',
     filterValue: 'Habitat and Ecological Health',
     activeIcon: habitatActive,
     inactiveIcon: habitatInactive,
@@ -67,6 +78,7 @@ export const goals = [
   },
   {
     name: 'Port and Maritime',
+    featureColor: '#893684',
     filterValue: 'Port and Maritime',
     activeIcon: portMaritimeActive,
     inactiveIcon: portMaritimeInactive,
@@ -74,6 +86,7 @@ export const goals = [
   },
   {
     name: 'Public Access',
+    featureColor: '#7E4B31',
     filterValue: 'Public Access and Stewardship',
     activeIcon: publicAccessActive,
     inactiveIcon: publicAccessInactive,
@@ -81,6 +94,7 @@ export const goals = [
   },
   {
     name: 'Community Engagement',
+    featureColor: '#ED861D',
     filterValue: 'Community Engagement',
     activeIcon: communityEngagementActive,
     inactiveIcon: communityEngagementInactive,
