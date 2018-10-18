@@ -2,6 +2,7 @@
   "name": "hep-emp",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://ebrelsford.github.io/hep-emp/",
   "dependencies": {
     "classnames": "^2.2.6",
     "d3-dsv": "^1.0.10",

@@ -1,4 +1,5 @@
 import { csvParse } from 'd3-dsv';
+import programsCsv from '../data/programs.csv';
 import contentDescriptors from '../models/content';
 
 export const setClickedFeatures = (clickedFeatures) => ({
@@ -37,7 +38,7 @@ export const receivedPrograms = (data) => ({
 export function fetchPrograms() {
   return function (dispatch) {
     dispatch(requestPrograms());
-    return fetch('/data/programs.csv')
+    return fetch(programsCsv)
       .then(response => response.text())
       .then((text) => dispatch(receivedPrograms(csvParse(text))));
   }
