@@ -1,4 +1,5 @@
 import { csvParse } from 'd3-dsv';
+import contentDescriptors from '../models/content';
 
 export const setClickedFeatures = (clickedFeatures) => ({
   type: 'SET_CLICKED_FEATURES',
@@ -39,5 +40,33 @@ export function fetchPrograms() {
     return fetch('/data/programs.csv')
       .then(response => response.text())
       .then((text) => dispatch(receivedPrograms(csvParse(text))));
+  }
+}
+
+export const requestContent = () => ({
+  type: 'REQUEST_CONTENT',
+});
+
+export const receiveContent = (content) => ({
+  type: 'RECEIVE_CONTENT',
+  content
+});
+
+export function fetchContent() {
+  return function (dispatch) {
+    dispatch(requestContent());
+
+    const loaders = contentDescriptors.map(descriptor => (
+      fetch(descriptor.url)
+        .then(response => response.text())
+    ));
+    return Promise.all(loaders)
+      .then((loadedContent) => {
+        const mappedContent = {};
+        loadedContent.forEach((markdown, i) => {
+          mappedContent[contentDescriptors[i].name] = markdown;
+        });
+        dispatch(receiveContent(mappedContent));
+      });
   }
 }

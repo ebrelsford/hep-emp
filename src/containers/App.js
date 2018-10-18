@@ -1,12 +1,13 @@
 import { connect } from 'react-redux';
 import App from '../components/App';
-import { fetchPrograms } from '../actions';
+import { fetchContent, fetchPrograms } from '../actions';
 
 const mapStateToProps = state => ({
   aboutModal: state.aboutModal
 });
 
 const mapDispatchToProps = dispatch => ({
+  fetchContent: () => dispatch(fetchContent()),
   fetchPrograms: () => dispatch(fetchPrograms())
 });
 

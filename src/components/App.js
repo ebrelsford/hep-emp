@@ -7,6 +7,7 @@ import Sidebar from './Sidebar';
 
 class App extends Component {
   componentWillMount() {
+    this.props.fetchContent();
     this.props.fetchPrograms();
   }
 

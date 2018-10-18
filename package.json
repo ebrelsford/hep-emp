@@ -12,6 +12,7 @@
     "react-dom": "^16.5.2",
     "react-key-handler": "^1.2.0-beta.3",
     "react-mapbox-gl": "^3.9.2",
+    "react-markdown": "^4.0.3",
     "react-redux": "^5.0.7",
     "react-scripts": "2.0.4",
     "react-select": "^2.1.0",
