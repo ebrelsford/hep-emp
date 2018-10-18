@@ -6,7 +6,7 @@ import FilterSelect from './FilterSelect';
 import Tooltip from './Tooltip';
 import './Filters.scss';
 
-import { goals } from '../config';
+import { goals, monitoringStatuses } from '../config';
 
 class Goal extends Component {
   constructor(props) {
@@ -74,9 +74,21 @@ class Filters extends Component {
     this.props.updateFilter('goals', goals);
   }
 
+  toggleMonitoringStatus(monitoringStatus) {
+    let monitoringStatuses = [...this.props.filters.monitoringStatuses];
+    if (monitoringStatuses.indexOf(monitoringStatus) >= 0) {
+      monitoringStatuses = monitoringStatuses.filter(s => s !== monitoringStatus);
+    }
+    else {
+      monitoringStatuses.push(monitoringStatus);
+    }
+    this.props.updateFilter('monitoringStatuses', monitoringStatuses);
+  }
+
   render() {
     const { filters, indicators, organizations } = this.props;
     const filteredGoals = filters.goals;
+    const filteredMonitoringStatuses = filters.monitoringStatuses;
 
     const organizationNamesOptions = organizations.map(name => ({
       label: name,
@@ -107,18 +119,21 @@ class Filters extends Component {
           <h2 className='Filter-label'>Monitoring Status</h2>
           <div className='Filter-input'>
             <ul>
-              <li>
-                <span className='monitoring-status-icon status-active'></span>
-                <label>Active</label>
-              </li>
-              <li>
-                <span className='monitoring-status-icon status-continuous'></span>
-                <label>Continuous</label>
-              </li>
-              <li>
-                <span className='monitoring-status-icon status-non-active'></span>
-                <label>Non-Active</label>
-              </li>
+              {monitoringStatuses.map(monitoringStatus => (
+                <li
+                  key={monitoringStatus.value}
+                  className={classNames('monitoring-status', {
+                    active: filteredMonitoringStatuses.indexOf(monitoringStatus.value) >= 0
+                  })}
+                  onClick={() => this.toggleMonitoringStatus(monitoringStatus.value)}
+                >
+                  <span className={classNames(
+                    'monitoring-status-icon',
+                    `status-${monitoringStatus.value}`
+                  )}></span>
+                  <label>{monitoringStatus.label}</label>
+                </li>
+              ))}
             </ul>
           </div>
         </div>

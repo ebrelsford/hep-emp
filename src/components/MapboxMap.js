@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import ReactMapboxGl, { ZoomControl } from 'react-mapbox-gl';
 
-import { goals, initialMap, mapbox } from '../config';
-import { getProgramsByGoals } from '../models/programs';
+import { goals, initialMap, mapbox, monitoringStatuses } from '../config';
+import { filterPrograms } from '../models/programs';
 import MapTooltip from './MapTooltip';
 import './MapboxMap.scss';
 
@@ -21,45 +21,94 @@ class Map extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    if (this.props.filters.goals !== nextProps.filters.goals) {
-      const selectedGoals = Object.keys(nextProps.filters.goals).filter(key => {
-        return nextProps.filters.goals[key];
-      });
-      const programs = getProgramsByGoals(this.props.programs, selectedGoals);
+    const filtersChanged = (
+      this.props.filters.goals !== nextProps.filters.goals ||
+      this.props.filters.indicatorCategory !== nextProps.filters.indicatorCategory ||
+      this.props.filters.monitoringStatuses !== nextProps.filters.monitoringStatuses ||
+      this.props.filters.organizationName !== nextProps.filters.organizationName
+    );
 
-      if (selectedGoals.length !== 1) {
-        Object.values(mapbox.layers)
-          .forEach(layer => {
-            layer.goalStyleFields.forEach(field => {
-              this.map.setPaintProperty(layer.name, field, initialMap.featureColor);
-            });
-          });
-      }
-
-      let filter;
-      if (programs.length) {
-        filter = ['in', 'ProgID'].concat(programs.map(program => program.ProgID));
-      }
-
-      Object.values(mapbox.layers).forEach(layer => {
-        let layerFilter = [...layer.defaultFilter];
-        if (filter) {
-          layerFilter.push(filter);
-        }
-        this.map.setFilter(layer.name, layerFilter);
-      });
-
-      if (selectedGoals.length === 1) {
-        const goal = goals.filter(g => g.filterValue === selectedGoals[0])[0];
-        Object.values(mapbox.layers)
-          .forEach(layer => {
-            // TODO continuous--deal with each color via SVG icon
-            layer.goalStyleFields.forEach(field => {
-              this.map.setPaintProperty(layer.name, field, goal.featureColor);
-            });
-          });
-      }
+    if (filtersChanged) {
+      this.handleUpdatedFilters(nextProps.filters);
     }
+  }
+
+  handleUpdatedFilters(nextFilters) {
+    const updatedFilters = {};
+    Object.values(mapbox.layers).forEach(layer => {
+      updatedFilters[layer.name] = [...layer.defaultFilter];
+    });
+
+    const selectedGoals = Object.keys(nextFilters.goals).filter(key => nextFilters.goals[key]);
+
+    // Update layer styles by goal
+    if (selectedGoals.length === 1) {
+      const goal = goals.filter(g => g.filterValue === selectedGoals[0])[0];
+      this.setMonitoringStatusStyles(goal);
+    }
+    else {
+      this.resetMonitoringStatusStyles();
+    }
+
+    // Filter by prorgram
+    const programs = filterPrograms(
+      this.props.programs,
+      selectedGoals,
+      nextFilters.indicatorCategory ? [nextFilters.indicatorCategory.value] : [],
+      nextFilters.organizationName ? [nextFilters.organizationName.value] : []
+    );
+
+    const programFilter = ['in', 'ProgID'].concat(programs.map(program => program.ProgID));
+    Object.values(mapbox.layers).forEach(layer => {
+      updatedFilters[layer.name].push(programFilter);
+    });
+
+    // Filter by monitoring status
+    const filteredMonitoringStatuses = nextFilters.monitoringStatuses;
+
+    // For each monitoringStatus, if it's active show it, else hide it
+    monitoringStatuses.forEach(monitoringStatus => {
+      if (filteredMonitoringStatuses.indexOf(monitoringStatus.value) >= 0) {
+        monitoringStatus.layers.forEach(layer => {
+          this.map.setLayoutProperty(layer, 'visibility', 'visible');
+        });
+      }
+      else {
+        monitoringStatus.layers.forEach(layer => {
+          this.map.setLayoutProperty(layer, 'visibility', 'none');
+        });
+      }
+    });
+
+    const filterValues = monitoringStatuses
+      .filter(monitoringStatus => filteredMonitoringStatuses.indexOf(monitoringStatus.value) >= 0)
+      .map(monitoringStatus => monitoringStatus.filterValue);
+    updatedFilters['monitoring-polygons'].push(['in', 'Legend', ...filterValues]);
+
+    Object.keys(updatedFilters).forEach(layer => {
+      this.map.setFilter(layer, updatedFilters[layer]);
+    });
+  }
+
+  setMonitoringStatusStyles(goal) {
+    if (!this.map) return;
+    Object.values(mapbox.layers)
+      .forEach(layer => {
+        // TODO continuous--deal with each color via SVG icon
+        layer.goalStyleFields.forEach(field => {
+          this.map.setPaintProperty(layer.name, field, goal.featureColor);
+        });
+      });
+  }
+
+  resetMonitoringStatusStyles() {
+    if (!this.map) return;
+    Object.values(mapbox.layers)
+      .forEach(layer => {
+        layer.goalStyleFields.forEach(field => {
+          this.map.setPaintProperty(layer.name, field, initialMap.featureColor);
+        });
+      });
   }
 
   findFeatures(map, point) {

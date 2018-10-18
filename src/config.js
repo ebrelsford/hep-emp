@@ -25,12 +25,12 @@ export const mapbox = {
     },
     monitoringPointsActive: {
       name: 'monitoring-points-active',
-      defaultFilter: ['all'],
+      defaultFilter: ['all', ['in', 'Legend', 'Active']],
       goalStyleFields: ['circle-color', 'circle-stroke-color']
     },
     monitoringPointsNonActive: {
       name: 'monitoring-points-non-active',
-      defaultFilter: ['all'],
+      defaultFilter: ['all', ['in', 'Legend', 'Historic/Nonactive']],
       goalStyleFields: ['circle-stroke-color']
     },
     monitoringPointsContinuous: {
@@ -99,5 +99,26 @@ export const goals = [
     activeIcon: communityEngagementActive,
     inactiveIcon: communityEngagementInactive,
     tooltip: 'Foster community stewardship and involvement in decisions about the Harbor Estuary.'
+  }
+];
+
+export const monitoringStatuses = [
+  {
+    label: 'Active',
+    filterValue: 'Active',
+    layers: ['monitoring-points-active'],
+    value: 'active'
+  },
+  {
+    label: 'Continuous',
+    filterValue: 'Continuous',
+    layers: ['monitoring-points-continuous'],
+    value: 'continuous'
+  },
+  {
+    label: 'Non-Active',
+    filterValue: 'Historic/Nonactive',
+    layers: ['monitoring-points-non-active'],
+    value: 'non-active'
   }
 ];

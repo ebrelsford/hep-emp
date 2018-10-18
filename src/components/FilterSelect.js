@@ -44,6 +44,7 @@ class FilterSelect extends Component {
     return (
       <Select
         className='Filter-input'
+        isClearable={true}
         styles={selectStyles}
         value={value}
         onChange={onChange}

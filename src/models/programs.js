@@ -56,8 +56,18 @@ export function getProgramsById(programs, id) {
   return programs.filter(program => program.ProgID === id);
 }
 
-export function getProgramsByGoals(programs, goals) {
+export function filterPrograms(programs, goals, indicators, organizations) {
   return programs.filter(program => {
-    return program.goals.filter(goal => goals.indexOf(goal) >= 0).length > 0;
+    if (goals.length && program.goals.filter(goal => goals.indexOf(goal) >= 0).length === 0) {
+      return false;
+    }
+    if (indicators.length && program.indicators.filter(indicator => indicators.indexOf(indicator) >= 0).length === 0) {
+      return false;
+    }
+    if (organizations.length && program.organizations.filter(organization => organizations.indexOf(organization) >= 0).length === 0) {
+      return false;
+    }
+
+    return true;
   });
 }

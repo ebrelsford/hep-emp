@@ -90,6 +90,18 @@
     padding-left: 0;
   }
 
+  .monitoring-status {
+    cursor: pointer;
+
+    & label {
+      cursor: pointer;
+    }
+  }
+
+  .monitoring-status.active {
+    font-weight: bold;
+  }
+
   .monitoring-status-icon {
     background: $dark-grey;
     border: 1px solid transparent;
