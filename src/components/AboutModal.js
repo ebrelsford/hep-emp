@@ -14,7 +14,6 @@ class AboutModal extends Component {
 
   render() {
     const { content, hideAboutModal } = this.props;
-    console.log(content);
 
     return (
       <div className='AboutModal'>
