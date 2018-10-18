@@ -1,3 +1,6 @@
+@import '../../node_modules/react-tabs/style/react-tabs';
+@import '../styles/colors';
+
 .AboutModal {
   background-color: white;
   border-radius: 3px;
@@ -10,6 +13,15 @@
   padding: 25px;
   width: 60%;
   z-index: 100;
+
+  h2 {
+    border-bottom: 1px solid #ddd;
+    color: $medium-light-grey;
+  }
+
+  .tab-inner {
+    height: 50px;
+  }
 }
 
 .AboutModal-close {
@@ -22,4 +34,21 @@
   position: absolute;
   right: 5px;
   top: 5px;
+}
+
+.react-tabs__tab {
+  font-size: 14px;
+  line-height: 18px;
+  text-align: center;
+  width: 20%;
+}
+
+.react-tabs__tab--selected {
+  border-color: #ddd;
+  color: $water-quality;
+  font-weight: bold;
+}
+
+.react-tabs__tab-list {
+  border-color: #ddd;
 }
