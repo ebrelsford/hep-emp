@@ -1,10 +1,11 @@
 @import '../styles/colors';
 @import '../styles/grid';
+@import './Sidebar';
 
 .Filters {
   border-bottom: 1px solid #7B756B;
-  flex: 1 1 auto;
-  padding-bottom: 36px;
+  flex: 0 1 auto;
+  padding-bottom: $sidebar-spacing;
 }
 
 .Filters h2 {

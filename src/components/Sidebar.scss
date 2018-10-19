@@ -1,3 +1,5 @@
+$sidebar-spacing: 28px;
+
 .Sidebar {
   background-color: #E9E9E2;
   float: left;
@@ -9,13 +11,13 @@
   display: flex;
   flex-direction: column;
   height: calc(100% - 95px);
-  padding: 0 36px;
+  padding: 0 $sidebar-spacing;
 }
 
 .Sidebar-logos {
   background-color: rgba(255, 255, 255, 0.5);
   height: 95px;
-  padding-left: 36px;
+  padding-left: $sidebar-spacing;
 }
 
 .Sidebar-logo {
@@ -30,8 +32,8 @@
 
 .Sidebar-header {
   border-bottom: 1px solid #7B756B;
-  margin: 36px 0;
-  padding-bottom: 36px;
+  margin: $sidebar-spacing 0;
+  padding-bottom: $sidebar-spacing;
 }
 
 .Sidebar-header-organization {
