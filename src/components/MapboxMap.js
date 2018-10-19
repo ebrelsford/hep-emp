@@ -83,7 +83,9 @@ class Map extends Component {
     const filterValues = monitoringStatuses
       .filter(monitoringStatus => filteredMonitoringStatuses.indexOf(monitoringStatus.value) >= 0)
       .map(monitoringStatus => monitoringStatus.filterValue);
-    updatedFilters['monitoring-polygons'].push(['in', 'Legend', ...filterValues]);
+    ['monitoring-lines', 'monitoring-polygons'].forEach(layer => {
+      updatedFilters[layer].push(['in', 'Legend', ...filterValues]);
+    });
 
     Object.keys(updatedFilters).forEach(layer => {
       this.map.setFilter(layer, updatedFilters[layer]);
