@@ -1,3 +1,5 @@
+@import '../styles/colors';
+
 $sidebar-spacing: 28px;
 $sidebar-spacing-small: 20px;
 $sidebar-border-color: rgba(123, 117, 107, 0.5);
@@ -39,6 +41,7 @@ $sidebar-border-color: rgba(123, 117, 107, 0.5);
 }
 
 .Sidebar-header-organization {
+  color: $dark-grey;
   font-size: 28px;
   font-weight: normal;
   line-height: 35px;
@@ -46,6 +49,7 @@ $sidebar-border-color: rgba(123, 117, 107, 0.5);
 }
 
 .Sidebar-header-project {
+  color: $dark-grey;
   font-size: 18px;
   font-weight: 200;
   letter-spacing: 1.1px;
