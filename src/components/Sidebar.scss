@@ -1,4 +1,5 @@
 $sidebar-spacing: 28px;
+$sidebar-spacing-small: 20px;
 $sidebar-border-color: rgba(123, 117, 107, 0.5);
 
 .Sidebar {
@@ -50,4 +51,25 @@ $sidebar-border-color: rgba(123, 117, 107, 0.5);
   letter-spacing: 1.1px;
   text-align: center;
   text-transform: uppercase;
+}
+
+@media (max-height: 750px) {
+  .Sidebar-main {
+    padding: 0 $sidebar-spacing-small;
+  }
+
+  .Sidebar-header {
+    margin: $sidebar-spacing-small 0;
+    padding-bottom: $sidebar-spacing-small;
+  }
+
+  .Sidebar-header-organization {
+    font-size: 20px;
+    line-height: 28px;
+  }
+
+  .Sidebar-header-project {
+    font-size: 12px;
+    line-height: 18px;
+  }
 }

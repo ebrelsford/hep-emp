@@ -22,3 +22,9 @@
   text-align: right;
   width: 33%;
 }
+
+@media (max-height: 750px) {
+  .Popup {
+    padding: $sidebar-spacing-small 0;
+  }
+}

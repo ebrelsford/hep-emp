@@ -140,3 +140,19 @@
 .Filter-input {
   flex: 1 1 auto;
 }
+
+@media (max-height: 750px) {
+  .Filters {
+    padding-bottom: $sidebar-spacing-small;
+  }
+
+  .Filters label {
+    font-size: 10px;
+    line-height: 16px;
+  }
+
+  .Filters-goal-name {
+    font-size: 10px;
+    line-height: 16px;
+  }
+}
