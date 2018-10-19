@@ -2,7 +2,7 @@
 @import './Sidebar';
 
 .Popup {
-  border-bottom: 1px solid #7B756B;
+  border-bottom: 1px solid $sidebar-border-color;
   flex: 1 1 auto;
   overflow-x: hidden;
   overflow-y: auto;

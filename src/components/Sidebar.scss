@@ -1,4 +1,5 @@
 $sidebar-spacing: 28px;
+$sidebar-border-color: rgba(123, 117, 107, 0.5);
 
 .Sidebar {
   background-color: #E9E9E2;
@@ -31,7 +32,7 @@ $sidebar-spacing: 28px;
 }
 
 .Sidebar-header {
-  border-bottom: 1px solid #7B756B;
+  border-bottom: 1px solid $sidebar-border-color;
   margin: $sidebar-spacing 0;
   padding-bottom: $sidebar-spacing;
 }

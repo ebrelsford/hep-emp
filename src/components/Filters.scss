@@ -3,7 +3,7 @@
 @import './Sidebar';
 
 .Filters {
-  border-bottom: 1px solid #7B756B;
+  border-bottom: 1px solid $sidebar-border-color;
   flex: 0 1 auto;
   padding-bottom: $sidebar-spacing;
 }
