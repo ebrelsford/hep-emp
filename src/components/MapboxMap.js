@@ -96,11 +96,12 @@ class Map extends Component {
     if (!this.map) return;
     Object.values(mapbox.layers)
       .forEach(layer => {
-        // TODO continuous--deal with each color via SVG icon
         layer.goalStyleFields.forEach(field => {
           this.map.setPaintProperty(layer.name, field, goal.featureColor);
         });
       });
+
+    this.map.setLayoutProperty(mapbox.layers.monitoringPointsContinuous.name, 'icon-image', goal.continuousMapIcon);
   }
 
   resetMonitoringStatusStyles() {
@@ -111,6 +112,9 @@ class Map extends Component {
           this.map.setPaintProperty(layer.name, field, initialMap.featureColor);
         });
       });
+
+    const defaultMapIcon = monitoringStatuses.filter(s => s.label === 'Continuous')[0].defaultMapIcon;
+    this.map.setLayoutProperty(mapbox.layers.monitoringPointsContinuous.name, 'icon-image', defaultMapIcon);
   }
 
   findFeatures(map, point) {
