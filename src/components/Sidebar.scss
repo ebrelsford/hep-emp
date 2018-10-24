@@ -77,3 +77,9 @@ $sidebar-border-color: rgba(123, 117, 107, 0.5);
     line-height: 18px;
   }
 }
+
+@media (min-width: 1800px) {
+  .Sidebar-main {
+    padding: 0 100px;
+  }
+}
