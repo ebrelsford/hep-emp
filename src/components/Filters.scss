@@ -10,6 +10,7 @@
 
 .Filters h2 {
   font-size: 14px;
+  margin-top: 0;
 }
 
 .Filters label {
@@ -34,7 +35,7 @@
 
 .Filters-goal-icon {
   margin: 0 auto;
-  max-width: 40px;
+  max-width: 45px;
   opacity: 0.6;
   width: 70%;
 }
@@ -47,6 +48,7 @@
   color: rgba(0, 0, 0, 0.6);
   font-size: 12px;
   line-height: 16px;
+  margin-top: 4px;
   text-align: center;
 }
 
@@ -95,6 +97,7 @@
     cursor: pointer;
 
     & label {
+      color: $medium-light-grey;
       cursor: pointer;
     }
   }
@@ -104,7 +107,7 @@
   }
 
   .monitoring-status-icon {
-    background: $dark-grey;
+    background: $medium-light-grey;
     border: 1px solid transparent;
     display: inline-block;
     margin-right: 5px;
