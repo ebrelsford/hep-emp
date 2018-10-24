@@ -45,9 +45,9 @@
 }
 
 .Filters-goal-name {
-  color: rgba(0, 0, 0, 0.6);
-  font-size: 12px;
-  line-height: 16px;
+  color: black;
+  font-size: 13px;
+  line-height: 17px;
   margin-top: 4px;
   text-align: center;
 }
@@ -97,7 +97,7 @@
     cursor: pointer;
 
     & label {
-      color: $medium-light-grey;
+      color: black;
       cursor: pointer;
     }
   }
