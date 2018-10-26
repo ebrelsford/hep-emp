@@ -78,6 +78,33 @@ $sidebar-border-color: rgba(123, 117, 107, 0.5);
   }
 }
 
+@media (max-width: 1000px) {
+  .Sidebar {
+    width: 50%;
+  }
+}
+
+@media (max-width: 1200px) {
+  .Sidebar-main {
+    padding: 0 $sidebar-spacing-small;
+  }
+
+  .Sidebar-header {
+    margin: $sidebar-spacing-small 0;
+    padding-bottom: $sidebar-spacing-small;
+  }
+
+  .Sidebar-header-organization {
+    font-size: 20px;
+    line-height: 28px;
+  }
+
+  .Sidebar-header-project {
+    font-size: 12px;
+    line-height: 18px;
+  }
+}
+
 @media (min-width: 1800px) {
   .Sidebar-main {
     padding: 0 100px;
