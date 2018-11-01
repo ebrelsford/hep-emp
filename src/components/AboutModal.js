@@ -13,7 +13,7 @@ class AboutModal extends Component {
   }
 
   render() {
-    const { content, hideAboutModal } = this.props;
+    const { content, hideAboutModal, showAboutModalTab, tabIndex } = this.props;
 
     return (
       <div className='AboutModal'>
@@ -23,7 +23,7 @@ class AboutModal extends Component {
         </div>
 
         <div className='AboutModal-body'>
-          <Tabs>
+          <Tabs onSelect={(index) => showAboutModalTab(index)} selectedIndex={tabIndex}>
             <TabList>
               <Tab>About this Map</Tab>
               <Tab>How to Use the Map</Tab>

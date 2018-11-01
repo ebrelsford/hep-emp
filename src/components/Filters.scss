@@ -1,4 +1,5 @@
 @import '../styles/colors';
+@import '../styles/fonts';
 @import '../styles/grid';
 @import './Sidebar';
 
@@ -151,6 +152,23 @@
 
 .Filter-input {
   flex: 1 1 auto;
+}
+
+.Filters .help-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: $font-primary;
+  font-weight: bold;
+  padding-right: 0;
+
+  &:hover {
+    color: $blue;
+  }
+
+  &:focus {
+    outline: none;
+  }
 }
 
 @media (max-height: 750px) {

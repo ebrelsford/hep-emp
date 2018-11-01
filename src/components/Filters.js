@@ -86,7 +86,7 @@ class Filters extends Component {
   }
 
   render() {
-    const { filters, indicators, organizations } = this.props;
+    const { filters, indicators, organizations, showAboutModal, showAboutModalTab } = this.props;
     const filteredGoals = filters.goals;
     const filteredMonitoringStatuses = filters.monitoringStatuses;
 
@@ -137,7 +137,13 @@ class Filters extends Component {
           </div>
         </div>
         <div className='Filters-indicator Filters-filter'>
-          <label className='Filter-label'>Indicator Category</label>
+          <label className='Filter-label'>
+            Indicator Category
+            <button className='help-button' onClick={() => {
+              showAboutModal();
+              showAboutModalTab(1);
+            }}>?</button>
+          </label>
           <FilterSelect
             value={filters.indicatorCategory}
             onChange={(option) => {

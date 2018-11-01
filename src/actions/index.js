@@ -16,6 +16,11 @@ export const hideAboutModal = () => ({
   type: 'HIDE_ABOUT_MODAL'
 });
 
+export const showAboutModalTab = (index) => ({
+  type: 'SHOW_ABOUT_MODAL_TAB',
+  index
+});
+
 export const showAboutModal = () => ({
   type: 'SHOW_ABOUT_MODAL'
 });

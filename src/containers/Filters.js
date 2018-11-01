@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { updateFilter } from '../actions';
+import { showAboutModal, showAboutModalTab, updateFilter } from '../actions';
 import Filters from '../components/Filters';
 
 const mapStateToProps = state => ({
@@ -10,6 +10,8 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
+  showAboutModal: () => dispatch(showAboutModal()),
+  showAboutModalTab: (index) => dispatch(showAboutModalTab(index)),
   updateFilter: (name, value) => dispatch(updateFilter(name, value))
 });
 
