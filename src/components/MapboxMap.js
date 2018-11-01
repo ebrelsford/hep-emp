@@ -8,6 +8,7 @@ import './MapboxMap.scss';
 
 const MapboxGlMap = ReactMapboxGl({
   accessToken: mapbox.accessToken,
+  attributionControl: false,
   minZoom: initialMap.minZoom,
   maxZoom: initialMap.maxZoom
 });
