@@ -40,8 +40,11 @@
   width: 70%;
 }
 
-.Filters-goal.active .Filters-goal-icon {
-  opacity: 1;
+.Filters-goal {
+  &:hover .Filters-goal-icon,
+  &.active .Filters-goal-icon {
+    opacity: 1;
+  }
 }
 
 .Filters-goal-name {
@@ -52,11 +55,12 @@
   text-align: center;
 }
 
-.Filters-goal.active .Filters-goal-name {
-  font-weight: bold;
-}
-
+.Filters-goal:hover,
 .Filters-goal.active {
+  .Filters-goal-name {
+    font-weight: bold;
+  }
+
   &.water-quality .Filters-goal-name {
     color: $water-quality;
   }
