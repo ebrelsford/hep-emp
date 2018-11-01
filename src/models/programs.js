@@ -56,6 +56,10 @@ export function getProgramsById(programs, id) {
   return programs.filter(program => program.ProgID === id);
 }
 
+export function getProgramsByGoal(programs, goal) {
+  return programs.filter(program => program.goals.indexOf(goal) >= 0);
+}
+
 export function filterPrograms(programs, goals, indicators, organizations) {
   return programs.filter(program => {
     if (goals.length && program.goals.filter(goal => goals.indexOf(goal) >= 0).length === 0) {

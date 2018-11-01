@@ -1,8 +1,12 @@
 import React, { Component } from 'react';
 import ReactMapboxGl, { ZoomControl } from 'react-mapbox-gl';
+import countBy from 'lodash.countby';
+import difference from 'lodash.difference';
+import flatten from 'lodash.flatten';
+import uniq from 'lodash.uniq';
 
 import { goals, initialMap, mapbox, monitoringStatuses } from '../config';
-import { filterPrograms } from '../models/programs';
+import { filterPrograms, getProgramsByGoal } from '../models/programs';
 import MapTooltip from './MapTooltip';
 import './MapboxMap.scss';
 
@@ -42,15 +46,6 @@ class Map extends Component {
 
     const selectedGoals = Object.keys(nextFilters.goals).filter(key => nextFilters.goals[key]);
 
-    // Update layer styles by goal
-    if (selectedGoals.length === 1) {
-      const goal = goals.filter(g => g.filterValue === selectedGoals[0])[0];
-      this.setMonitoringStatusStyles(goal);
-    }
-    else {
-      this.resetMonitoringStatusStyles();
-    }
-
     // Filter by prorgram
     const programs = filterPrograms(
       this.props.programs,
@@ -58,6 +53,14 @@ class Map extends Component {
       nextFilters.indicatorCategory ? [nextFilters.indicatorCategory.value] : [],
       nextFilters.organizationName ? [nextFilters.organizationName.value] : []
     );
+
+    // Update layer styles by goal
+    if (selectedGoals.length > 0) {
+      this.setMonitoringStatusStyles(goals.filter(g => selectedGoals.indexOf(g.filterValue) >= 0), programs);
+    }
+    else {
+      this.resetMonitoringStatusStyles();
+    }
 
     const programFilter = ['in', 'ProgID'].concat(programs.map(program => program.ProgID));
     Object.values(mapbox.layers).forEach(layer => {
@@ -93,16 +96,67 @@ class Map extends Component {
     });
   }
 
-  setMonitoringStatusStyles(goal) {
+  setMonitoringStatusStyles(goals, programs) {
     if (!this.map) return;
+
+    // Group programs by their goals
+    const groupedPrograms = {};
+    goals.forEach(goal => {
+      groupedPrograms[goal.filterValue] = uniq(getProgramsByGoal(programs, goal.filterValue).map(p => p.ProgID));
+    });
+
+    if (goals.length > 1) {
+      const counted = countBy(flatten(Object.values(groupedPrograms)));
+      const multipleGoals = Object.keys(counted).filter(program => counted[program] > 1);
+
+      if (multipleGoals.length > 0) {
+        Object.keys(groupedPrograms).forEach(group => {
+          groupedPrograms[group] = difference(groupedPrograms[group], multipleGoals);
+        });
+        groupedPrograms['multiple'] = multipleGoals;
+      }
+    }
+
+    // Create a color style by program ID
+    const goalsColorStyle = ['match', ['get', 'ProgID']];
+    const defaultColor = 'black';
+    Object.keys(groupedPrograms).forEach(group => {
+      if (groupedPrograms[group].length === 0) return;
+      goalsColorStyle.push(groupedPrograms[group]);
+      if (group === 'multiple') {
+        goalsColorStyle.push(defaultColor);
+      }
+      else {
+        goalsColorStyle.push(goals.filter(g => g.filterValue === group)[0].featureColor);
+      }
+    });
+    goalsColorStyle.push(defaultColor);
+
+    // Add color style to each layer that can take it
     Object.values(mapbox.layers)
       .forEach(layer => {
         layer.goalStyleFields.forEach(field => {
-          this.map.setPaintProperty(layer.name, field, goal.featureColor);
+          this.map.setPaintProperty(layer.name, field, goalsColorStyle);
         });
       });
 
-    this.map.setLayoutProperty(mapbox.layers.monitoringPointsContinuous.name, 'icon-image', goal.continuousMapIcon);
+    // Create a icon style by program ID
+    const goalsIconStyle = ['match', ['get', 'ProgID']];
+    const defaultMapIcon = monitoringStatuses.filter(s => s.label === 'Continuous')[0].defaultMapIcon;
+    Object.keys(groupedPrograms).forEach(group => {
+      if (groupedPrograms[group].length === 0) return;
+      goalsIconStyle.push(groupedPrograms[group]);
+      if (group === 'multiple') {
+        goalsIconStyle.push(defaultMapIcon);
+      }
+      else {
+        goalsIconStyle.push(goals.filter(g => g.filterValue === group)[0].continuousMapIcon);
+      }
+    });
+    goalsIconStyle.push(defaultMapIcon);
+
+    // Add icon style to continuous layer
+    this.map.setLayoutProperty(mapbox.layers.monitoringPointsContinuous.name, 'icon-image', goalsIconStyle);
   }
 
   resetMonitoringStatusStyles() {
