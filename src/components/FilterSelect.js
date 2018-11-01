@@ -28,7 +28,8 @@ const selectStyles = {
   option: (base) => {
     return {
       ...base,
-      fontSize: '12px'
+      fontSize: '12px',
+      padding: '2px'
     };
   },
   menu: (base) => {
