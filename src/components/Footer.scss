@@ -31,4 +31,8 @@
   &:hover {
     color: $blue;
   }
+
+  &:focus {
+    outline: none;
+  }
 }
