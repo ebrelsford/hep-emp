@@ -8,6 +8,7 @@ $sidebar-border-color: rgba(123, 117, 107, 0.5);
   background-color: #E9E9E2;
   float: left;
   height: 100vh;
+  max-width: 550px;
   width: 34%;
 }
 
@@ -102,11 +103,5 @@ $sidebar-border-color: rgba(123, 117, 107, 0.5);
   .Sidebar-header-project {
     font-size: 12px;
     line-height: 18px;
-  }
-}
-
-@media (min-width: 1800px) {
-  .Sidebar-main {
-    padding: 0 100px;
   }
 }
