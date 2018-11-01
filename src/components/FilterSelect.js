@@ -42,6 +42,38 @@ const selectStyles = {
       boxShadow: 'none',
       margin: 0
     };
+  },
+  clearIndicator: (base) => {
+    return {
+      ...base,
+      height: '24px',
+      padding: '2px'
+    };
+  },
+  dropdownIndicator: (base) => {
+    return {
+      ...base,
+      height: '24px',
+      padding: '2px'
+    };
+  },
+  input: (base) => {
+    return {
+      ...base,
+      height: '24px'
+    };
+  },
+  singleValue: (base) => {
+    return {
+      ...base,
+      height: '20px'
+    };
+  },
+  valueContainer: (base) => {
+    return {
+      ...base,
+      height: '24px'
+    };
   }
 };
 
