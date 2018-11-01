@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+
+import { programDatabaseUrl } from '../config';
 import './Footer.scss';
 
 class Footer extends Component {
@@ -8,10 +10,10 @@ class Footer extends Component {
     return (
       <div className='Footer'>
         <div className='Footer-left'>
-          <button className='Footer-button' onClick={showAboutModal}>About the map</button>
+          <button className='Footer-button' onClick={showAboutModal}>About the Map</button>
         </div>
         <div className='Footer-right'>
-          <button className='Footer-button'>Download the Program Database</button>
+          <a href={programDatabaseUrl} className='Footer-button' target='_blank' rel='noopener noreferrer'>Download the Program Database</a>
         </div>
       </div>
     );
