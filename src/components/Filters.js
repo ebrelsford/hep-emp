@@ -103,6 +103,7 @@ class Filters extends Component {
     return (
       <div className='Filters'>
         <div className='Filters-goals'>
+          <h2 className='Filter-goals-label'>Filter by Goal</h2>
           <div className='Filters-goal-pickers'>
             {goals.map(goal => (
               <Goal
