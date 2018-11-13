@@ -19,10 +19,10 @@ class Sidebar extends Component {
     return (
       <div className='Sidebar'>
         <div className='Sidebar-logos'>
-          <a className='Sidebar-logo' href={hepLink}>
+          <a className='Sidebar-logo' href={hepLink} target='_blank' rel='noopener noreferrer'>
             <img src={logoHep} alt='NY/NJ Harbor & Estuary Project' />
           </a>
-          <a className='Sidebar-logo' href={hrfLink}>
+          <a className='Sidebar-logo' href={hrfLink} target='_blank' rel='noopener noreferrer'>
             <img src={logoHrf} alt='Hudson River Foundation' />
           </a>
         </div>
