@@ -3,6 +3,10 @@
   float: left;
   height: 100vh;
   width: 66%;
+
+  &.over-feature * {
+    cursor: pointer;
+  }
 }
 
 @media (max-width: 1000px) {

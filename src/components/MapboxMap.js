@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import ReactMapboxGl, { ZoomControl } from 'react-mapbox-gl';
+import classNames from 'classnames';
 import countBy from 'lodash.countby';
 import difference from 'lodash.difference';
 import flatten from 'lodash.flatten';
@@ -205,7 +206,9 @@ class Map extends Component {
     const { mousePosition } = this.state;
 
     return (
-      <div className='MapboxMap-container'>
+      <div className={classNames('MapboxMap-container', {
+        'over-feature': mouseOverFeatures.length > 0
+      })}>
         <MapboxGlMap
           // eslint-disable-next-line
           style={mapbox.styleUrl}
