@@ -55,7 +55,7 @@ export const initialMap = {
     [-75.992432,39.774769],
     [-71.488037,42.932296]
   ],
-  maxZoom: 10,
+  maxZoom: 12,
   minZoom: 7,
   zoom: [8]
 };
