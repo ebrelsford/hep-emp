@@ -10,7 +10,7 @@ class Footer extends Component {
     return (
       <div className='Footer'>
         <div className='Footer-left'>
-          <button className='Footer-button' onClick={showAboutModal}>About the Map</button>
+          <button className='Footer-button' onClick={showAboutModal}>Learn About the Map</button>
         </div>
         <div className='Footer-right'>
           <a href={programDatabaseUrl} className='Footer-button' target='_blank' rel='noopener noreferrer'>Download the Program Database</a>
