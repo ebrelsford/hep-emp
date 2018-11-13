@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import Linkify from 'react-linkify';
+
 import { getProgramsById } from '../models/programs';
 import './Popup.scss';
 
@@ -68,7 +70,9 @@ class ProgramPopup extends Component {
         </div>
         <div className='Popup-row'>
           <div className='Popup-label'>Reference</div>
-          <div className='Popup-value'>{Reference}</div>
+          <div className='Popup-value'>
+            <Linkify properties={{ target: '_blank' }}>{Reference}</Linkify>
+          </div>
         </div>
         <div className='Popup-row'>
           <div className='Popup-label'>Contact</div>
