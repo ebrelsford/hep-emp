@@ -113,6 +113,7 @@ export const monitoringStatuses = [
     label: 'Active',
     filterValue: 'Active',
     layers: ['monitoring-points-active'],
+    tooltip: 'Sites that are actively monitored',
     value: 'active'
   },
   {
@@ -120,12 +121,14 @@ export const monitoringStatuses = [
     filterValue: 'Continuous',
     layers: ['monitoring-points-continuous'],
     defaultMapIcon: 'square-default',
+    tooltip: 'Sites that are continuously monitored',
     value: 'continuous'
   },
   {
     label: 'Non-Active',
     filterValue: 'Historic/Nonactive',
     layers: ['monitoring-points-non-active'],
+    tooltip: 'Sites that are no longer monitored',
     value: 'non-active'
   }
 ];

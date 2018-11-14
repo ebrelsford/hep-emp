@@ -1,12 +1,20 @@
 import React, { Component } from 'react';
+import classNames from 'classnames';
 
 import './Tooltip.scss';
 
 class Tooltip extends Component {
   render() {
-    const { children, left, top } = this.props;
+    const { children, left, orientation, top } = this.props;
+    let arrowOrientation = 'top';
+    if (orientation) {
+      arrowOrientation = orientation;
+    }
     return (
-      <div className='Tooltip' style={{ left, top }}>
+      <div
+        className={classNames('Tooltip', `orientation-arrow-${arrowOrientation}`)}
+        style={{ left, top }}
+      >
         <div className='Tooltip-arrow'></div>
         {children}
       </div>

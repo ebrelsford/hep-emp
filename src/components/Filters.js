@@ -67,6 +67,63 @@ class Goal extends Component {
   }
 }
 
+class MonitoringStatus extends Component {
+  constructor(props) {
+    super(props);
+    this.parentRef = React.createRef();
+    this.state = {
+      tooltipVisible: false
+    };
+  }
+
+  onMouseOver() {
+    const rect = this.parentRef.current.getBoundingClientRect();
+    this.setState({
+      tooltipLeft: rect.x + rect.width + 10,
+      tooltipTop: rect.y - rect.height / 2 + 5,
+      tooltipVisible: true
+    });
+  }
+
+  onMouseOut() {
+    this.setState({ tooltipVisible: false });
+  }
+
+  render() {
+    const { active, label, name, onChange, tooltip } = this.props;
+    const { tooltipLeft, tooltipTop, tooltipVisible } = this.state;
+
+    return (
+      <span
+        className={classNames('monitoring-status', { active })}
+        onMouseOut={this.onMouseOut.bind(this)}
+        onMouseOver={this.onMouseOver.bind(this)}
+        ref={this.parentRef}
+      >
+        <input type='checkbox' 
+          id={name}
+          checked={active}
+          onChange={onChange}
+        />
+        <label htmlFor={name}>
+          <span className={classNames('monitoring-status-icon', `status-${name}`)}></span>
+          {label}
+        </label>
+
+        {tooltipVisible && tooltip ? (
+          <Tooltip
+            left={tooltipLeft}
+            orientation='left'
+            top={tooltipTop}
+          >
+            {tooltip}
+          </Tooltip>
+        ) : null}
+      </span>
+    );
+  }
+}
+
 class Filters extends Component {
   updateGoals(goalName) {
     const goals = Object.assign({}, this.props.filters.goals);
@@ -120,24 +177,14 @@ class Filters extends Component {
           <div className='Filter-input'>
             <ul>
               {monitoringStatuses.map(monitoringStatus => (
-                <li
-                  key={monitoringStatus.value}
-                  className={classNames('monitoring-status', {
-                    active: filteredMonitoringStatuses.indexOf(monitoringStatus.value) >= 0
-                  })}
-                >
-                  <input type='checkbox' 
-                    id={monitoringStatus.value}
-                    checked={filteredMonitoringStatuses.indexOf(monitoringStatus.value) >= 0}
+                <li key={monitoringStatus.value}>
+                  <MonitoringStatus
+                    active={filteredMonitoringStatuses.indexOf(monitoringStatus.value) >= 0}
+                    label={monitoringStatus.label}
                     onChange={() => this.toggleMonitoringStatus(monitoringStatus.value)}
+                    name={monitoringStatus.value}
+                    tooltip={monitoringStatus.tooltip}
                   />
-                  <label htmlFor={monitoringStatus.value}>
-                    <span className={classNames(
-                      'monitoring-status-icon',
-                      `status-${monitoringStatus.value}`
-                    )}></span>
-                    {monitoringStatus.label}
-                  </label>
                 </li>
               ))}
             </ul>

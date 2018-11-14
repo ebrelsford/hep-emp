@@ -6,6 +6,7 @@
   border-radius: 3px;
   box-shadow: 0 0 7px 0 rgba(0, 0, 0, 0.25);
   font-size: 12px;
+  font-weight: normal;
   line-height: 16px;
   max-width: 200px;
   padding: 9px;
@@ -21,5 +22,20 @@
     top: -6px;
     transform: rotate(45deg);
     width: 10px;
+  }
+
+  &.orientation-arrow-left {
+    .Tooltip-arrow {
+      background: white;
+      border: none;
+      border-bottom: 1px solid $light-grey;
+      border-left: 1px solid $light-grey;
+      height: 10px;
+      position: absolute;
+      left: -6px;
+      transform: rotate(45deg);
+      top: calc(50% - 6px);
+      width: 10px;
+    }
   }
 }
