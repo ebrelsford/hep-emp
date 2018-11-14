@@ -2,6 +2,7 @@ import classNames from 'classnames';
 import React, { Component } from 'react';
 import slug from 'slug';
 
+import { filterPrograms, uniqueIndicators, uniqueOrganizations } from '../models/programs';
 import FilterSelect from './FilterSelect';
 import Tooltip from './Tooltip';
 import './Filters.scss';
@@ -143,16 +144,19 @@ class Filters extends Component {
   }
 
   render() {
-    const { filters, indicators, organizations, showAboutModal, showAboutModalTab } = this.props;
+    const { filters, programs, showAboutModal, showAboutModalTab } = this.props;
     const filteredGoals = filters.goals;
     const filteredMonitoringStatuses = filters.monitoringStatuses;
 
-    const organizationNamesOptions = organizations.map(name => ({
+    const selectedGoals = Object.keys(filteredGoals).filter(key => filteredGoals[key]);
+    const filteredPrograms = filterPrograms(programs, selectedGoals, [], []);
+
+    const organizationNamesOptions = uniqueOrganizations(filteredPrograms).map(name => ({
       label: name,
       value: name
     }));
 
-    const indicatorCategoriesOptions = indicators.map(name => ({
+    const indicatorCategoriesOptions = uniqueIndicators(filteredPrograms).map(name => ({
       label: name,
       value: name
     }));
