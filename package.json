@@ -4,6 +4,7 @@
   "private": true,
   "homepage": "https://ebrelsford.github.io/hep-emp/",
   "dependencies": {
+    "@babel/polyfill": "^7.0.0",
     "classnames": "^2.2.6",
     "d3-dsv": "^1.0.10",
     "lodash.countby": "^4.6.0",
