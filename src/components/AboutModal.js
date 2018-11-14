@@ -32,6 +32,7 @@ class AboutModal extends Component {
                 <Tab>About the Data</Tab>
                 <Tab>About the Environmental Monitoring Plan</Tab>
                 <Tab>About the Harbor Estuary Program</Tab>
+                <Tab>Credits</Tab>
               </TabList>
 
               <TabPanel>
@@ -48,6 +49,9 @@ class AboutModal extends Component {
               </TabPanel>
               <TabPanel>
                 <ReactMarkdown source={content.content.aboutProgram}/>
+              </TabPanel>
+              <TabPanel>
+                <ReactMarkdown source={content.content.acknowledgements}/>
               </TabPanel>
             </Tabs>
           </div>
