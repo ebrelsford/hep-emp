@@ -20,6 +20,7 @@
   &-header {
     border-bottom: 1px solid #ddd;
     color: $medium-light-grey;
+    cursor: grab;
     margin-bottom: 15px;
 
     h2 {
@@ -67,6 +68,10 @@
       }
     }
   }
+}
+
+.react-draggable-dragging .AboutModal-header {
+  cursor: grabbing;
 }
 
 .AboutModal-close {

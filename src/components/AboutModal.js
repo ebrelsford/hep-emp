@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Draggable from 'react-draggable';
 import { keyHandler, KEYDOWN } from 'react-key-handler';
 import ReactMarkdown from 'react-markdown';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
@@ -16,40 +17,42 @@ class AboutModal extends Component {
     const { content, hideAboutModal, showAboutModalTab, tabIndex } = this.props;
 
     return (
-      <div className='AboutModal'>
-        <button className='AboutModal-close' onClick={hideAboutModal}>&times;</button>
-        <div className='AboutModal-header'>
-          <h2>The Environmental Monitoring Plan Map</h2>
-        </div>
+      <Draggable handle='.AboutModal-header'>
+        <div className='AboutModal'>
+          <button className='AboutModal-close' onClick={hideAboutModal}>&times;</button>
+          <div className='AboutModal-header'>
+            <h2>The Environmental Monitoring Plan Map</h2>
+          </div>
 
-        <div className='AboutModal-body'>
-          <Tabs onSelect={(index) => showAboutModalTab(index)} selectedIndex={tabIndex}>
-            <TabList>
-              <Tab>About this Map</Tab>
-              <Tab>How to Use the Map</Tab>
-              <Tab>About the Data</Tab>
-              <Tab>About the Environmental Monitoring Plan</Tab>
-              <Tab>About the Harbor Estuary Program</Tab>
-            </TabList>
+          <div className='AboutModal-body'>
+            <Tabs onSelect={(index) => showAboutModalTab(index)} selectedIndex={tabIndex}>
+              <TabList>
+                <Tab>About this Map</Tab>
+                <Tab>How to Use the Map</Tab>
+                <Tab>About the Data</Tab>
+                <Tab>About the Environmental Monitoring Plan</Tab>
+                <Tab>About the Harbor Estuary Program</Tab>
+              </TabList>
 
-            <TabPanel>
-              <ReactMarkdown source={content.content.aboutThisMap}/>
-            </TabPanel>
-            <TabPanel>
-              <ReactMarkdown source={content.content.howToUse}/>
-            </TabPanel>
-            <TabPanel>
-              <ReactMarkdown source={content.content.aboutData}/>
-            </TabPanel>
-            <TabPanel>
-              <ReactMarkdown source={content.content.aboutPlan}/>
-            </TabPanel>
-            <TabPanel>
-              <ReactMarkdown source={content.content.aboutProgram}/>
-            </TabPanel>
-          </Tabs>
+              <TabPanel>
+                <ReactMarkdown source={content.content.aboutThisMap}/>
+              </TabPanel>
+              <TabPanel>
+                <ReactMarkdown source={content.content.howToUse}/>
+              </TabPanel>
+              <TabPanel>
+                <ReactMarkdown source={content.content.aboutData}/>
+              </TabPanel>
+              <TabPanel>
+                <ReactMarkdown source={content.content.aboutPlan}/>
+              </TabPanel>
+              <TabPanel>
+                <ReactMarkdown source={content.content.aboutProgram}/>
+              </TabPanel>
+            </Tabs>
+          </div>
         </div>
-      </div>
+      </Draggable>
     );
   }
 }
