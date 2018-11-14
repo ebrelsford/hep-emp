@@ -1,0 +1,7 @@
+## About the NY-NJ Harbor & Estuary Program
+
+The New York – New Jersey Harbor & Estuary Program (HEP) helps bring together diverse stakeholders including scientists, citizens, and policymakers to realize the benefits of the fishable and swimmable waters called for by the Clean Water Act.  HEP was created in 1988 by the U.S. Environmental Protection Agency (EPA) at the request of the governors of New York and New Jersey. The Hudson River Foundation manages the Program and provides the non-federal match to funds received from the EPA under the Clean Water Act. 
+
+Working with its many partners, HEP is working to reach critical water quality, habitat, maritime, public access, and community engagement goals.  Forty specific actions have been identified in the 2017-2022 Action Agenda. Our State of the Estuary 2018 compiles the best available data to illuminate long-term and shorter-term trends as to the health of the Estuary. The Environmental Monitoring Plan will help ensure that HEP and its many partners has the data needed to understand estuarine health and our progress towards fishable and swimmable waters.  
+
+Although the information in this document has been funded wholly or in part by the United States Environmental Protection Agency under agreement to the Hudson River Foundation, it has not undergone the Agency’s publications review process and therefore, may not necessarily reflect the views of the Agency, and no official endorsement should be inferred.
