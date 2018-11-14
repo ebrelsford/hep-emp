@@ -125,13 +125,19 @@ class Filters extends Component {
                   className={classNames('monitoring-status', {
                     active: filteredMonitoringStatuses.indexOf(monitoringStatus.value) >= 0
                   })}
-                  onClick={() => this.toggleMonitoringStatus(monitoringStatus.value)}
                 >
-                  <span className={classNames(
-                    'monitoring-status-icon',
-                    `status-${monitoringStatus.value}`
-                  )}></span>
-                  <label>{monitoringStatus.label}</label>
+                  <input type='checkbox' 
+                    id={monitoringStatus.value}
+                    checked={filteredMonitoringStatuses.indexOf(monitoringStatus.value) >= 0}
+                    onChange={() => this.toggleMonitoringStatus(monitoringStatus.value)}
+                  />
+                  <label htmlFor={monitoringStatus.value}>
+                    <span className={classNames(
+                      'monitoring-status-icon',
+                      `status-${monitoringStatus.value}`
+                    )}></span>
+                    {monitoringStatus.label}
+                  </label>
                 </li>
               ))}
             </ul>
