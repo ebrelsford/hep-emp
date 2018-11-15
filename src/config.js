@@ -30,9 +30,9 @@ export const mapbox = {
       goalStyleFields: ['circle-color', 'circle-stroke-color']
     },
     monitoringPointsNonActive: {
-      name: 'monitoring-points-non-active',
+      name: 'monitoring-points-non-active-icons',
       defaultFilter: ['all', ['in', 'Legend', 'Historic/Nonactive']],
-      goalStyleFields: ['circle-stroke-color']
+      goalStyleFields: []
     },
     monitoringPointsContinuous: {
       name: 'monitoring-points-continuous',
@@ -68,6 +68,7 @@ export const goals = [
     activeIcon: waterQualityActive,
     inactiveIcon: waterQualityInactive,
     continuousMapIcon: 'square-water-quality',
+    nonActiveMapIcon: 'triangle-water-quality',
     tooltip: 'Reduce the sources of pollution so that the waters of the Harbor Estuary will meet the fishable/swimmable goal of the Clean Water Act.'
   },
   {
@@ -77,6 +78,7 @@ export const goals = [
     activeIcon: habitatActive,
     inactiveIcon: habitatInactive,
     continuousMapIcon: 'square-habitat',
+    nonActiveMapIcon: 'triangle-habitat',
     tooltip: 'Protect and restore the vital habitat, ecological function, and biodiversity that provide society with renewed and increased benefits.'
   },
   {
@@ -86,6 +88,7 @@ export const goals = [
     activeIcon: portMaritimeActive,
     inactiveIcon: portMaritimeInactive,
     continuousMapIcon: 'square-port-maritime',
+    nonActiveMapIcon: 'triangle-port-maritime',
     tooltip: 'Support port and associated maritime operations so that they are both economically and ecologically viable.'
   },
   {
@@ -95,6 +98,7 @@ export const goals = [
     activeIcon: publicAccessActive,
     inactiveIcon: publicAccessInactive,
     continuousMapIcon: 'square-public-access',
+    nonActiveMapIcon: 'triangle-public-access',
     tooltip: 'Improve public access to the waters of the Estuary and the quality of experience at public spaces along the waterfront.'
   },
   {
@@ -104,6 +108,7 @@ export const goals = [
     activeIcon: communityEngagementActive,
     inactiveIcon: communityEngagementInactive,
     continuousMapIcon: 'square-community-engagement',
+    nonActiveMapIcon: 'triangle-community-engagement',
     tooltip: 'Foster community stewardship and involvement in decisions about the Harbor Estuary.'
   }
 ];
@@ -127,7 +132,8 @@ export const monitoringStatuses = [
   {
     label: 'Non-Active',
     filterValue: 'Historic/Nonactive',
-    layers: ['monitoring-points-non-active'],
+    layers: ['monitoring-points-non-active-icons'],
+    defaultMapIcon: 'triangle-default',
     tooltip: 'Sites that are no longer monitored',
     value: 'non-active'
   }

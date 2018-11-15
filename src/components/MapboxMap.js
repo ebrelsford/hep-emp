@@ -155,22 +155,30 @@ class Map extends Component {
       });
 
     // Create a icon style by program ID
-    const goalsIconStyle = ['match', ['get', 'ProgID']];
-    const defaultMapIcon = monitoringStatuses.filter(s => s.label === 'Continuous')[0].defaultMapIcon;
+    const continuousIconStyle = ['match', ['get', 'ProgID']];
+    const defaultContinuousMapIcon = monitoringStatuses.filter(s => s.label === 'Continuous')[0].defaultMapIcon;
+    const nonActiveIconStyle = ['match', ['get', 'ProgID']];
+    const defaultNonActiveMapIcon = monitoringStatuses.filter(s => s.label === 'Non-Active')[0].defaultMapIcon;
     Object.keys(groupedPrograms).forEach(group => {
       if (groupedPrograms[group].length === 0) return;
-      goalsIconStyle.push(groupedPrograms[group]);
+
+      continuousIconStyle.push(groupedPrograms[group]);
+      nonActiveIconStyle.push(groupedPrograms[group]);
       if (group === 'multiple') {
-        goalsIconStyle.push(defaultMapIcon);
+        continuousIconStyle.push(defaultContinuousMapIcon);
+        nonActiveIconStyle.push(defaultNonActiveMapIcon);
       }
       else {
-        goalsIconStyle.push(goals.filter(g => g.filterValue === group)[0].continuousMapIcon);
+        continuousIconStyle.push(goals.filter(g => g.filterValue === group)[0].continuousMapIcon);
+        nonActiveIconStyle.push(goals.filter(g => g.filterValue === group)[0].nonActiveMapIcon);
       }
     });
-    goalsIconStyle.push(defaultMapIcon);
+    continuousIconStyle.push(defaultContinuousMapIcon);
+    nonActiveIconStyle.push(defaultNonActiveMapIcon);
 
     // Add icon style to continuous layer
-    this.map.setLayoutProperty(mapbox.layers.monitoringPointsContinuous.name, 'icon-image', goalsIconStyle);
+    this.map.setLayoutProperty(mapbox.layers.monitoringPointsContinuous.name, 'icon-image', continuousIconStyle);
+    this.map.setLayoutProperty(mapbox.layers.monitoringPointsNonActive.name, 'icon-image', nonActiveIconStyle);
   }
 
   resetMonitoringStatusStyles() {
@@ -182,8 +190,11 @@ class Map extends Component {
         });
       });
 
-    const defaultMapIcon = monitoringStatuses.filter(s => s.label === 'Continuous')[0].defaultMapIcon;
-    this.map.setLayoutProperty(mapbox.layers.monitoringPointsContinuous.name, 'icon-image', defaultMapIcon);
+    const defaultContinuousMapIcon = monitoringStatuses.filter(s => s.label === 'Continuous')[0].defaultMapIcon;
+    this.map.setLayoutProperty(mapbox.layers.monitoringPointsContinuous.name, 'icon-image', defaultContinuousMapIcon);
+
+    const defaultNonActiveMapIcon = monitoringStatuses.filter(s => s.label === 'Non-Active')[0].defaultMapIcon;
+    this.map.setLayoutProperty(mapbox.layers.monitoringPointsNonActive.name, 'icon-image', defaultNonActiveMapIcon);
   }
 
   findFeatures(map, point) {
