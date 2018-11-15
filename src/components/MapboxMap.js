@@ -56,7 +56,8 @@ class Map extends Component {
 
     // Update layer styles by goal
     if (selectedGoals.length > 0) {
-      this.setMonitoringStatusStyles(goals.filter(g => selectedGoals.indexOf(g.filterValue) >= 0), programs);
+      const fullSelectedGoals = goals.filter(g => selectedGoals.indexOf(g.filterValue) >= 0);
+      this.setMonitoringStatusStyles(fullSelectedGoals, programs, nextFilters.goalClickOrder);
     }
     else {
       this.resetMonitoringStatusStyles();
@@ -96,7 +97,7 @@ class Map extends Component {
     });
   }
 
-  setMonitoringStatusStyles(goals, programs) {
+  setMonitoringStatusStyles(goals, programs, goalClickOrder) {
     if (!this.map) return;
 
     // Group programs by their goals
@@ -110,10 +111,23 @@ class Map extends Component {
       const multipleGoals = Object.keys(counted).filter(program => counted[program] > 1);
 
       if (multipleGoals.length > 0) {
+        // Remove programs with multiple selected goals from those goals
         Object.keys(groupedPrograms).forEach(group => {
           groupedPrograms[group] = difference(groupedPrograms[group], multipleGoals);
         });
-        groupedPrograms['multiple'] = multipleGoals;
+
+        // Carefully add program to one of its goals
+        multipleGoals.forEach(programId => {
+          // Find most recent of its goals that was clicked
+          const program = programs.filter(p => p.ProgID === programId)[0];
+          const clickedIndices = program.goals
+            .map(goalName => goalClickOrder.indexOf(goalName))
+            .filter(i => !isNaN(i));
+          const mostRecentGoal = goalClickOrder[Math.max(...clickedIndices)];
+
+          // Add program to most recent goal's group
+          groupedPrograms[mostRecentGoal].push(programId);
+        });
       }
     }
 

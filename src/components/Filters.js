@@ -129,6 +129,12 @@ class Filters extends Component {
   updateGoals(goalName) {
     const goals = Object.assign({}, this.props.filters.goals);
     goals[goalName] = !goals[goalName];
+    if (goals[goalName]) {
+      this.props.addGoalFilter(goalName);
+    }
+    else {
+      this.props.removeGoalFilter(goalName);
+    }
     this.props.updateFilter('goals', goals);
   }
 

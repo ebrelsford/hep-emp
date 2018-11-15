@@ -31,6 +31,16 @@ export const updateFilter = (name, value) => ({
   value
 });
 
+export const addGoalFilter = (name) => ({
+  type: 'ADD_GOAL_FILTER',
+  name
+});
+
+export const removeGoalFilter = (name) => ({
+  type: 'REMOVE_GOAL_FILTER',
+  name
+});
+
 export const requestPrograms = () => ({
   type: 'REQUEST_PROGRAMS',
 });
