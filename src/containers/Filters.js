@@ -2,6 +2,7 @@ import { connect } from 'react-redux';
 import {
   addGoalFilter,
   removeGoalFilter,
+  scrollToModalSection,
   showAboutModal,
   showAboutModalTab,
   updateFilter
@@ -18,6 +19,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   addGoalFilter: (name) => dispatch(addGoalFilter(name)),
   removeGoalFilter: (name) => dispatch(removeGoalFilter(name)),
+  scrollToModalSection: (name) => dispatch(scrollToModalSection(name)),
   showAboutModal: () => dispatch(showAboutModal()),
   showAboutModalTab: (index) => dispatch(showAboutModalTab(index)),
   updateFilter: (name, value) => dispatch(updateFilter(name, value))

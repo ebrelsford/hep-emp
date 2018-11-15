@@ -11,6 +11,14 @@ class AboutModal extends Component {
     if (nextProps.keyValue === 'Escape') {
       this.props.hideAboutModal();
     }
+
+    if (nextProps.tabScrollSection) {
+      // Try to find the section scrolled to
+      const section = document.querySelector(`#${nextProps.tabScrollSection}`);
+      if (section) {
+        section.scrollIntoView();
+      }
+    }
   }
 
   render() {
@@ -36,22 +44,22 @@ class AboutModal extends Component {
               </TabList>
 
               <TabPanel>
-                <ReactMarkdown source={content.content.aboutThisMap}/>
+                <ReactMarkdown escapeHtml={false} source={content.content.aboutThisMap}/>
               </TabPanel>
               <TabPanel>
-                <ReactMarkdown source={content.content.howToUse}/>
+                <ReactMarkdown escapeHtml={false} source={content.content.howToUse}/>
               </TabPanel>
               <TabPanel>
-                <ReactMarkdown source={content.content.aboutData}/>
+                <ReactMarkdown escapeHtml={false} source={content.content.aboutData}/>
               </TabPanel>
               <TabPanel>
-                <ReactMarkdown source={content.content.aboutPlan}/>
+                <ReactMarkdown escapeHtml={false} source={content.content.aboutPlan}/>
               </TabPanel>
               <TabPanel>
-                <ReactMarkdown source={content.content.aboutProgram}/>
+                <ReactMarkdown escapeHtml={false} source={content.content.aboutProgram}/>
               </TabPanel>
               <TabPanel>
-                <ReactMarkdown source={content.content.acknowledgements}/>
+                <ReactMarkdown escapeHtml={false} source={content.content.acknowledgements}/>
               </TabPanel>
             </Tabs>
           </div>

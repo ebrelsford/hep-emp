@@ -5,6 +5,7 @@ import AboutModal from '../components/AboutModal';
 const mapStateToProps = state => ({
   content: state.content,
   tabIndex: state.aboutModal.tabIndex,
+  tabScrollSection: state.aboutModal.tabScrollSection,
   visible: state.aboutModal.visible
 });
 

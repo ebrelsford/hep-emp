@@ -10,6 +10,8 @@ Once a goal is selected, the indicator category will display all options availab
 
 Below is a complete table of the goal, indicator category, and indicator that you will find while exploring the map. This table is also accessible on the bottom right corner of the screen and accessible at any time.
 
+<div id="indicator-categories"></div>
+
 | Goal | Indicator Category | Indicator(s) |
 |-------------------------------|--------------------|------------------------------------------------------------------------------------------------------------------------------|
 | Community Engagement | Citizen Science | Participation in Citizen Science |

@@ -39,7 +39,7 @@ class Goal extends Component {
     return (
       <div
         className={classNames(
-          'Filters-goal', 
+          'Filters-goal',
           slug(name).toLowerCase(),
           { active }
         )}
@@ -101,7 +101,7 @@ class MonitoringStatus extends Component {
         onMouseOver={this.onMouseOver.bind(this)}
         ref={this.parentRef}
       >
-        <input type='checkbox' 
+        <input type='checkbox'
           id={name}
           checked={active}
           onChange={onChange}
@@ -150,7 +150,7 @@ class Filters extends Component {
   }
 
   render() {
-    const { filters, programs, showAboutModal, showAboutModalTab } = this.props;
+    const { filters, programs, scrollToModalSection, showAboutModal, showAboutModalTab } = this.props;
     const filteredGoals = filters.goals;
     const filteredMonitoringStatuses = filters.monitoringStatuses;
 
@@ -206,6 +206,7 @@ class Filters extends Component {
             <button className='help-button' onClick={() => {
               showAboutModal();
               showAboutModalTab(1);
+              scrollToModalSection('indicator-categories');
             }}>?</button>
           </label>
           <FilterSelect

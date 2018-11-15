@@ -21,6 +21,11 @@ export const showAboutModalTab = (index) => ({
   index
 });
 
+export const scrollToModalSection = (tabScrollSection) => ({
+  type: 'SCROLL_TO_MODAL_SECTION',
+  tabScrollSection
+});
+
 export const showAboutModal = () => ({
   type: 'SHOW_ABOUT_MODAL'
 });
