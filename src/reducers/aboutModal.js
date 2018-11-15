@@ -1,6 +1,6 @@
 const DEFAULT_STATE = {
-  tabIndex: 0,
-  visible: false
+  tabIndex: 1,
+  visible: true
 };
 
 const aboutModal = (state = DEFAULT_STATE, action) => {
