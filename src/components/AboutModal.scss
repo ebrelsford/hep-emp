@@ -91,7 +91,9 @@
 }
 
 .react-tabs {
-  height: 100%;
+  display: flex;
+  flex-direction: column;
+  height: 98%;
 }
 
 .react-tabs__tab {
@@ -108,7 +110,7 @@
 }
 
 .react-tabs__tab-panel {
-  height: 85%;
+  flex: 1 1 auto;
   overflow-y: auto;
 }
 
