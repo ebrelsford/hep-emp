@@ -129,9 +129,11 @@
     }
 
     &.status-non-active {
-      background: transparent;
-      border-color: $dark-grey;
-      border-radius: 50%;
+      background: none;
+      background-image: url(../img/triangle-default.svg);
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: 150%;
     }
   }
 
