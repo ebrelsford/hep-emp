@@ -1,6 +1,6 @@
 ## How to use the Interactive Map
 
-The legend to the left of the map is your workspace. This is where you can toggle on and off between HEP goals and monitoring status, with the ability to have more than one goal and/or monitoring status selected. By toggling these sections, the map will display points and polygons in the color associated to the goal and the points on the map will change shape (per the legend) based on the status of the program and the use of this site location.
+The legend to the left of the map is your workspace. This is where you can toggle on and off between HEP goals and monitoring status, with the ability to have more than one goal and/or monitoring status selected. By toggling these sections, the map will display points and polygons in the color associated to the goal and the points on the map will change shape (per the legend) based on the status of the program and the use of this site location. Active monitoring indicates a program’s on going monitoring efforts. Continuous monitoring indicates daily monitoring with limited time lapse between samples. Non-active monitoring indicates a site no longer in an active program but contains historic data. The map layers are transparent so darker colors indicate a higher density of monitoring sites.
 
 ![](images/about-map-legend.jpg)
 
@@ -18,7 +18,7 @@ Below is a complete table of the goal, indicator category, and indicator that yo
 | Community Engagement | Civic Engagement | Capacity of Stewardship Organizations |
 | Habitat and Ecological Health | Marine | Benthic Index of Biotic Integrity, Established Oyster Beds, Estuarine & Diadromous Fish Abundance, Whale & Dolphin Abundance |
 | Habitat and Ecological Health | Riparian | Stream Health Bioassessment, Tributary Habitat Connectivity |
-| Habitat and Ecological Health | Shorelines | Horseshoe Crab Abundance, Percent & Distribution of Natural Shorelines, Submerged Aquatic Vegetation |
+| Habitat and Ecological Health | Shorelines and Shallows | Horseshoe Crab Abundance, Percent & Distribution of Natural Shorelines, Submerged Aquatic Vegetation |
 | Habitat and Ecological Health | Wetlands | Area of Wetlands, Nesting Pairs of Harbor Herons |
 | Port and Maritime | Toxics | Dioxin in Sediment, Metals in Sediment, PAHs in Sediment, PCBs |
 | Public Access and Stewardship | Stewardship | On-Water Programs |
@@ -42,7 +42,7 @@ Below is a complete table of the indicatory category and the organization names 
 | Nutrients | Bronx River Alliance, Friends of Van Cortlandt Park, Meadowlands Environmental Research Institute, Monmouth County Health Dept., New Jersey Harbor Dischargers Group, Newtown Creek Alliance, NJ Dept. of Environmental Protection, NY State Dept. of Environmental Conservation, US Environmental Protection Agency, & US Geological Survey |
 | Pathogens | Bronx River Alliance, CUNY Queens College, Friends of Van Cortlandt Park, Lamont-Doherty Earth Observatory, Interstate Environmental Commission, Meadowlands Environmental Research Institute, Monmouth County Health Dept., National Park Services, New Jersey Harbor Dischargers Group, NJ CSO Group, NJ Dept. of Environmental Protection, NYC Dept. of Environmental Protection, NYC Water Trail Association, Passaic Valley Sewerage Commission, Quassaick Creek Watershed Alliance, Rensselaer Land Trust, Riverkeeper, Roe Jan Watershed Community, Saw Kill Watershed Community, SUNY College, Surfrider, & US Environmental Protection Agency |
 | Riparian | NJ Dept. of Environmental Protection, NY State Dept. of Environmental Conservation, & Sarah Lawrence College |
-| Shorelines | Bayshore Regional Watershed Council, Cary Institute, Cornell University, Hudson River National Estuarine Research Reserve, National Park Services, NYC Audubon, NYC Parks, & NY State Dept. of Environmental Conservation |
+| Shorelines and Shallows | Save Coastal Wildlife, Cary Institute, Cornell University, Hudson River National Estuarine Research Reserve, National Park Services, NYC Audubon, NYC Parks, & NY State Dept. of Environmental Conservation |
 | Stewardship | Waterfront Alliance |
 | Toxics | Hudson River Foundation, Meadowlands Environmental Research Institute, National Oceanic and Atmospheric Administration, NY-NJ Harbor & Estuary Program, NY State Dept. of Environmental Conservation, US Army Corp of Engineers,  US Geological Survey, & US Environmental Protection Agency |
 | Wetlands | Hudson River National Estuarine Research Reserve, NY State Dept. of Environmental Conservation, & NYC Audubon |
