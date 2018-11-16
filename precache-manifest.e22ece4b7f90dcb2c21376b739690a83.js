@@ -4,8 +4,8 @@ self.__precacheManifest = [
     "url": "/hep-emp/static/media/community-engagement-inactive.b5f1047b.svg"
   },
   {
-    "revision": "8f09af61750cc4452b3d",
-    "url": "/hep-emp/static/css/main.04944409.chunk.css"
+    "revision": "05fac662bbc925d72dfd",
+    "url": "/hep-emp/static/css/main.f4b7fc49.chunk.css"
   },
   {
     "revision": "ba47e2f4e4cb0b65a1a6",
@@ -32,24 +32,24 @@ self.__precacheManifest = [
     "url": "/hep-emp/static/media/about-program.561abcd9.md"
   },
   {
-    "revision": "49bbb5c90da3eda2fa5e04a14e250f86",
-    "url": "/hep-emp/static/media/about-this-map.49bbb5c9.md"
+    "revision": "61e60fc52a3d280edc84f995915af7e5",
+    "url": "/hep-emp/static/media/about-this-map.61e60fc5.md"
   },
   {
     "revision": "5d2749e67189ebdb68d21b0231fec4a7",
     "url": "/hep-emp/static/media/acknowledgements.5d2749e6.md"
   },
   {
-    "revision": "9e6f76a5e4b88b6a8ce56ef011497fae",
-    "url": "/hep-emp/static/media/how-to-use.9e6f76a5.md"
+    "revision": "98a44f3c85ef190417dcb63871560bff",
+    "url": "/hep-emp/static/media/how-to-use.98a44f3c.md"
   },
   {
     "revision": "dcef41706947f54dfc9e50cb1f7c57b6",
     "url": "/hep-emp/static/media/community-engagement-active.dcef4170.svg"
   },
   {
-    "revision": "8f09af61750cc4452b3d",
-    "url": "/hep-emp/static/js/main.8f09af61.chunk.js"
+    "revision": "05fac662bbc925d72dfd",
+    "url": "/hep-emp/static/js/main.05fac662.chunk.js"
   },
   {
     "revision": "24e0cfb2fb2555573b5b358fcc82accc",
@@ -92,7 +92,11 @@ self.__precacheManifest = [
     "url": "/hep-emp/static/media/logo-hrf.36a90dd3.svg"
   },
   {
-    "revision": "108048cb83c4244569ea98bdedaa05ad",
+    "revision": "5f0c42d447f23f5c332f96347779d087",
+    "url": "/hep-emp/static/media/triangle-default.5f0c42d4.svg"
+  },
+  {
+    "revision": "9627e3febda1ab2e5c25ca8a8ab30641",
     "url": "/hep-emp/index.html"
   }
 ];
