@@ -14,3 +14,11 @@ npm start
 ```
 
 Much of the map data resides in Mapbox, so you will need access to the Mapbox account to make changes to that data.
+
+## Deployment
+
+```bash
+npm run build
+```
+
+Zip the contents of `build/` and upload to the server.
