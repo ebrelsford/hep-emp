@@ -21,8 +21,8 @@ class Goal extends Component {
   onMouseOver() {
     const rect = this.parentRef.current.getBoundingClientRect();
     this.setState({
-      tooltipLeft: rect.x + (rect.width / 4),
-      tooltipTop: rect.y + rect.height,
+      tooltipLeft: rect.left + (rect.width / 4),
+      tooltipTop: rect.top + rect.height,
       tooltipVisible: true
     });
   }
@@ -80,8 +80,8 @@ class MonitoringStatus extends Component {
   onMouseOver() {
     const rect = this.parentRef.current.getBoundingClientRect();
     this.setState({
-      tooltipLeft: rect.x + rect.width + 10,
-      tooltipTop: rect.y - rect.height / 2 + 5,
+      tooltipLeft: rect.left + rect.width + 10,
+      tooltipTop: rect.top - rect.height / 2 + 5,
       tooltipVisible: true
     });
   }
