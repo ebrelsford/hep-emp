@@ -2,7 +2,7 @@
   "name": "hep-emp",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://ebrelsford.github.io/hep-emp/",
+  "homepage": "https://www.hudsonriver.org/hep-emp/",
   "dependencies": {
     "@babel/polyfill": "^7.0.0",
     "classnames": "^2.2.6",
