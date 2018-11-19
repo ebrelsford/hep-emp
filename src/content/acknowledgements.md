@@ -4,6 +4,6 @@ Prepared by staff of the NY-NJ Harbor & Estuary Program (HEP) and Hudson River F
 
 Christopher Hyatts, Biswarup Guha, Sarah Lipuma, James MacDonald, Keith Mahoney, Rosella O’Connor, Sara Powell, Clay Sherman, Shino Tanikawa, Richard Winfield, and David Yozzo.
 
-Graphic design and data visualization by Jessie Braden, Sara Eichner, and the Spatial Analysis and Visualization Initiative at Pratt Institute.
+Design and mapping by the Pratt Institute Spatial Analysis and Visualization Initiative, Sara Eichner, and Eric Brelsford.
 
 CITATION: Da Silva, R; Stinnette, I; Pirani, R; Lodge, J; Giudicelli, A; Taylor, M., 2018. NY-NJ Harbor & Estuary Program Environmental Monitoring Plan: Interactive Map, Hudson River Foundation. New York, NY.
