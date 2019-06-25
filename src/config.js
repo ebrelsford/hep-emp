@@ -13,8 +13,8 @@ export const organizationName = 'NY-NJ Harbor & Estuary';
 export const projectName = 'Environmental Monitoring Sites';
 export const programDatabaseUrl = 'https://docs.google.com/spreadsheets/d/1k3D3xxKq3zxOnzCUhFOPT5jdkwoAFdWKr0OSm14BHXY/edit#gid=0';
 
-export const hepLink = 'http://www.hudsonriver.org/';
-export const hrfLink = 'http://www.hudsonriver.org/';
+export const hepLink = 'https://www.hudsonriver.org/estuary-program';
+export const hrfLink = 'https://www.hudsonriver.org/estuary-program';
 
 export const mapbox = {
   accessToken: 'pk.eyJ1IjoiaHVkc29ucmYiLCJhIjoiY2ptcWsybmN0MXF5azN2bWw0emxvdmI2aSJ9.lFisgR_vLsqNOMgusrDIhA',
